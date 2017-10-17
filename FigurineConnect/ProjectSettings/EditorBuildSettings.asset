@@ -5,21 +5,24 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameLoading.unity
     guid: 68d3cc50d85aec34091c5a99292fa02e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Menu.unity
     guid: 30b6366211e450a4ba47da024732d56d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level_1.unity
     guid: e13efbb000fbeea4d85680b5916f6fa9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level_2.unity
     guid: 6bb788ec2d9a57642a42672c76a6ec83
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level_3.unity
     guid: daa236ad33d748940bba0bfa6eb256bc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level_4.unity
     guid: de9919f7c1a4fcd4fa4646f3aaf21dc3
+  - enabled: 1
+    path: Assets/Tests/TouchTest.unity
+    guid: 5b7b930e8403b51468f4c701f16e96af
