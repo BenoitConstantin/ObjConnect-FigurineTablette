@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class CalibrationButton : MonoBehaviour {
 
     [SerializeField]
-    SurfacePointsDetector surfacePointsDetector;
+    SurfaceObjectDetector surfacePointsDetector;
 
     [SerializeField]
     Text text;
@@ -20,15 +20,15 @@ public class CalibrationButton : MonoBehaviour {
 
     public void OnClick()
     {
-        if(surfacePointsDetector.CurrentState == SurfacePointsDetector.State.PROCESSING_POSITION_ROTATION)
+        if(surfacePointsDetector.CurrentState == SurfaceObjectDetector.State.PROCESSING_POSITION_ROTATION)
         {
-            surfacePointsDetector.StartCalibration(surfaceObjectID);
+            surfacePointsDetector.StartCalibration(SurfaceObjectDetector.Instance.GetSurfaceObject(surfaceObjectID));
             text.text = "Stop Calibration";
         }
         else
         {
             surfacePointsDetector.StopCalibration();
-            text.text = "Calibrate";
+            text.text = "Calibrate " + surfaceObjectID;
         }
     }
 
