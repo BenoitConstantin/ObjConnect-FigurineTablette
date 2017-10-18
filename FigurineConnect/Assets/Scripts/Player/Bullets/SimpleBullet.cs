@@ -51,4 +51,12 @@ public class SimpleBullet : MonoBehaviour {
     public void SetBulletDamage(int value) {
         damage = value;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        HealthEnemy enemy = collision.GetComponent<HealthEnemy>();
+        if (enemy != null) {
+            enemy.SetLife(damage,false);
+            Destroy(gameObject);
+        }
+    }
 }

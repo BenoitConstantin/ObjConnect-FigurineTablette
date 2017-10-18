@@ -6,9 +6,10 @@ public class PlayerManager : MonoBehaviour {
 
     private GameObject soldierUnit;
     private GameObject shooterUnit;
+    private GameObject playerBase;
 
     [Header("General Config")]
-    public int life;
+    public int health;
     public float scaleTime;
     public float scaleTimeDuration;
 
@@ -27,11 +28,15 @@ public class PlayerManager : MonoBehaviour {
     void Start () {
         soldierUnit = GameObject.Find("SoldierUnit");
         shooterUnit = GameObject.Find("ShooterUnit");
+        playerBase = GameObject.FindGameObjectWithTag("PlayerBase");
         if (soldierUnit != null) {
             SetSoldierParams();
         }
         if(shooterUnit != null) {
             SetShooterParams();
+        }
+        if(playerBase != null) {
+            playerBase.GetComponent<PlayerBase>().health = health;
         }
 	}
 	

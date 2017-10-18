@@ -9,7 +9,7 @@ public class SoldierUnit : BaseUnit {
 	// Use this for initialization
 	void Start () {
         SetCamera();
-        arcBullet.GetComponent<SpriteRenderer>().enabled = false;
+       // arcBullet.GetComponent<SpriteRenderer>().enabled = false;
     }
 	
     public void SetDamageAttack(int value) {

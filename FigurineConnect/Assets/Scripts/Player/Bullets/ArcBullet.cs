@@ -4,20 +4,36 @@ using UnityEngine;
 
 public class ArcBullet : MonoBehaviour {
 
-    public int damage;
+    public float damage;
+    private ArrayList  enemyList;
 	// Use this for initialization
 	void Start () {
-		
-	}
+        enemyList = new ArrayList();
+        GetComponent<SpriteRenderer>().enabled = false;
+    }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
     private void OnTriggerEnter2D(Collider2D collision) {
         HealthEnemy enemy = collision.GetComponent<HealthEnemy>();
         if (enemy != null) {
-            enemy.SetLife(damage);
+            GetComponent<SpriteRenderer>().enabled = true;
+            if (enemyList.IndexOf(enemy) == -1) enemyList.Add(enemy);
+            enemy.SetLife(damage, true);
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision) {
+        HealthEnemy enemy = collision.GetComponent<HealthEnemy>();
+        if (enemy != null) {
+            enemyList.Remove(enemy);
+            if(enemyList.Count == 0) {
+                GetComponent<SpriteRenderer>().enabled = false;
+            }
+            enemy.FinishDamage();
         }
     }
 }

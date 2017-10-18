@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 212460615267941020}
   - component: {fileID: 114075540120964148}
   - component: {fileID: 61424123234323858}
+  - component: {fileID: 114217863461217896}
   m_Layer: 0
   m_Name: SoldierUnit
   m_TagString: Unit
@@ -168,10 +169,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f30b516516eca346a6f813d1899aa26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: 1
+  test: 0
   actionTime: 0
   rotation: 0
-  attackSprite: {fileID: 212416557906222554}
+  arcBullet: {fileID: 1483167267627146}
+--- !u!114 &114217863461217896
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1529190085064108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8be3bca1b69be1640b39cc761bc0b01c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  surfaceObjectID: SoldierUnit
+  transform: {fileID: 4507658545207434}
+  distanceFromCamera: 10
 --- !u!114 &114264654065972058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -183,6 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5cb2c3eddd31324d915e8244689e287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0
 --- !u!212 &212416557906222554
 SpriteRenderer:
   m_ObjectHideFlags: 1
