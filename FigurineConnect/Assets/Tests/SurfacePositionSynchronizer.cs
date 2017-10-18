@@ -27,7 +27,7 @@ public class SurfacePositionSynchronizer : MonoBehaviour {
 
     void Update()
     {
-        if (surfaceObject.detected)
+        if (surfaceObject.isDetected)
         {
             transform.position = Camera.main.ScreenToWorldPoint(new Vector3(surfaceObject.currentPosition.x, surfaceObject.currentPosition.y, distanceFromCamera));
             transform.LookAt(transform.position + Camera.main.transform.TransformVector(surfaceObject.direction));

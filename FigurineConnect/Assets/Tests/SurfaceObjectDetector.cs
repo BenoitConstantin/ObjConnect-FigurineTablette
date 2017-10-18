@@ -46,9 +46,6 @@ public class SurfaceObjectDetector : SimpleSingleton<SurfaceObjectDetector>
                 break;
 
         }
-
-
-        Debug.Log("\\\\\\");
     }
 
 
@@ -57,7 +54,7 @@ public class SurfaceObjectDetector : SimpleSingleton<SurfaceObjectDetector>
 
         foreach (SurfaceObject obj in surfaceObjects)
         {
-            obj.detected = false;
+            obj.isDetected = false;
         }
 
         if (Input.touchCount < 3)
@@ -94,7 +91,7 @@ public class SurfaceObjectDetector : SimpleSingleton<SurfaceObjectDetector>
                         {
                             obj.currentPosition = BarycentricPoint(positions);
                             obj.direction = FarthestPointToBarycentricPoint(positions) - obj.currentPosition;
-                            obj.detected = true;
+                            obj.isDetected = true;
 
                             availablePositions.Remove(positions[0]);
                             availablePositions.Remove(positions[1]);
@@ -122,7 +119,7 @@ public class SurfaceObjectDetector : SimpleSingleton<SurfaceObjectDetector>
     {
         this.currentState = State.CALIBRATING;
         this.calibratedSurfaceObject = obj;
-        obj.calibrated = false;
+        obj.isCalibrated = false;
     }
 
     public void StopCalibration()
@@ -156,7 +153,7 @@ public class SurfaceObjectDetector : SimpleSingleton<SurfaceObjectDetector>
             Vector2 barycentricPoint = BarycentricPoint(positions);
 
 
-            if (obj.calibrated)
+            if (obj.isCalibrated)
             {
                 obj.calibratedDistances[0] += calibrationAverageRate * Vector2.Distance(Input.GetTouch(0).position, barycentricPoint) / (1+ calibrationAverageRate);
                 obj.calibratedDistances[1] += calibrationAverageRate * Vector2.Distance(Input.GetTouch(1).position, barycentricPoint) / (1 + calibrationAverageRate);
@@ -170,7 +167,7 @@ public class SurfaceObjectDetector : SimpleSingleton<SurfaceObjectDetector>
             }
 
 
-            obj.calibrated = true;
+            obj.isCalibrated = true;
             return CalibrationStatus.CALIBRATED;
         }
     }
