@@ -9,6 +9,7 @@ public class ShooterUnit : BaseUnit {
     public Transform head;
     private float currentTime;
     private Transform bulletLayer;
+    private int bulletDamage;
 	// Use this for initialization
 	void Start () {
         bulletLayer = GameObject.FindGameObjectWithTag("BulletLayer").transform;
@@ -32,5 +33,10 @@ public class ShooterUnit : BaseUnit {
         newBullet.transform.parent = (bulletLayer != null)? bulletLayer: transform.parent;
         newBullet.transform.localPosition = transform.localPosition;
         newBullet.GetComponent<SimpleBullet>().SetDirection(head.position - transform.position, rotation);
+        newBullet.GetComponent<SimpleBullet>().SetBulletDamage(bulletDamage);
+    }
+
+    public void SetDamageAttack(int value) {
+        bulletDamage = value;
     }
 }

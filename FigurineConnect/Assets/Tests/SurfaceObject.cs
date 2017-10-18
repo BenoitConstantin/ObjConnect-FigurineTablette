@@ -11,7 +11,7 @@ public class SurfaceObject {
     public Vector2 currentPosition;
     public Vector2 direction;
 
-    public bool calibrated = false;
-    public bool detected = false;
+    public bool isCalibrated = false;
+    public bool isDetected = false;
 
 }

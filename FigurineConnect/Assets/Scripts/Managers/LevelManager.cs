@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour {
 
-    public float minX;
-    public float maxX;
-    public float minY;
-    public float maxY;
+    
 	// Use this for initialization
 	void Start () {
 		

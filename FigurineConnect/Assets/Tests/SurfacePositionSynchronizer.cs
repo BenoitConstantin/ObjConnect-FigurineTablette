@@ -17,15 +17,20 @@ public class SurfacePositionSynchronizer : MonoBehaviour {
 
     void Start()
     {
-        surfaceObject = SurfaceObjectDetector.Instance.GetSurfaceObject(surfaceObjectID);
+        if (SurfaceObjectDetector.Instance == null) {
+            enabled = false;
+        } else {
+            surfaceObject = SurfaceObjectDetector.Instance.GetSurfaceObject(surfaceObjectID);
+            if (surfaceObject == null) enabled = false;
+        }
     }
 
     void Update()
     {
-        if (surfaceObject.detected)
+        if (surfaceObject.isDetected)
         {
             transform.position = Camera.main.ScreenToWorldPoint(new Vector3(surfaceObject.currentPosition.x, surfaceObject.currentPosition.y, distanceFromCamera));
-            transform.LookAt(transform.position + new Vector3(surfaceObject.direction.x, 0, surfaceObject.direction.y));
+            transform.LookAt(transform.position + Camera.main.transform.TransformVector(surfaceObject.direction));
         }
     }
 }

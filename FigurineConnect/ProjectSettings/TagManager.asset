@@ -9,6 +9,7 @@ TagManager:
   - Unit
   - PathNode
   - Defence
+  - PlayerBase
   layers:
   - Default
   - TransparentFX
