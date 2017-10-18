@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Limits
   - BulletLayer
+  - Unit
   layers:
   - Default
   - TransparentFX

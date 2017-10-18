@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class BaseUnit : MonoBehaviour {
 
+    public bool test;
     public bool inGame { get; private set; }
     public float actionTime;
     [Range(0, 360)]
     public float rotation;
     private Camera mainCamera;
+    private bool selected;
     // Use this for initialization
     void Start () {
         inGame = false;
         
+    }
+
+    public bool IsSelected() {
+        return selected;
+    }
+
+    public void SetUnitSelection(bool sel) {
+        selected = sel;
     }
 
 	public void SetCamera() {
@@ -22,14 +32,21 @@ public class BaseUnit : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Rotate();
+        
 	}
-    
+
+    void OnMouseDown() {
+        if (test) {
+            SendMessageUpwards("UnitSelection");
+            selected = true;
+        }
+    }
+
     public void Rotate() {
         transform.rotation = Quaternion.Euler(0, 0, rotation);
     }
 
-    public void SetNewPosition(float posX, float posY) {
-       
+    public void SetNewPosition(float posX, float posY) {   
         transform.position = mainCamera.ScreenToWorldPoint(new Vector3(posX, posY, 10));
     }
 }
