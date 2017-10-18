@@ -12,6 +12,8 @@ public class SimpleBullet : MonoBehaviour {
     private Vector3 limitInf;
     private Vector3 limitSup;
     private Vector3 forward;
+    private int damage;
+
     // Use this for initialization
     void Start () {
         rigid = GetComponent<Rigidbody2D>();
@@ -28,7 +30,7 @@ public class SimpleBullet : MonoBehaviour {
         Time.timeScale = scaleTime;
         Vector3 pos = transform.localPosition;
         if(pos.x<limitInf.x || pos.y<limitInf.y || pos.x> limitSup.x || pos.y> limitSup.y) {
-            ///Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 
@@ -44,5 +46,9 @@ public class SimpleBullet : MonoBehaviour {
 	}
     void Move() {
         rigid.MovePosition(transform.position + direction * (Time.deltaTime * speed*100));
+    }
+
+    public void SetBulletDamage(int value) {
+        damage = value;
     }
 }
