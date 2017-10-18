@@ -12,8 +12,15 @@ public class SurfacePositionSynchronizer : MonoBehaviour {
 
     public float distanceFromCamera = 10;
 
+    public float positionLerpTime = 5f;
+    public float rotationLerpTime = 0.1f;
+
+    public float snapThreshold = 2f;
+
     SurfaceObject surfaceObject;
 
+    Vector3 targetPosition;
+    Vector3 targetLookAt;
 
     void Start()
     {
@@ -29,8 +36,17 @@ public class SurfacePositionSynchronizer : MonoBehaviour {
     {
         if (surfaceObject.isDetected)
         {
-            transform.position = Camera.main.ScreenToWorldPoint(new Vector3(surfaceObject.currentPosition.x, surfaceObject.currentPosition.y, distanceFromCamera));
-            transform.LookAt(transform.position + Camera.main.transform.TransformVector(surfaceObject.direction));
+            targetPosition = Camera.main.ScreenToWorldPoint(new Vector3(surfaceObject.currentPosition.x, surfaceObject.currentPosition.y, distanceFromCamera));
+            targetLookAt = targetPosition + Camera.main.transform.TransformVector(surfaceObject.direction);
+
+            if (Vector3.Distance(transform.position, targetPosition) > snapThreshold)
+                transform.position = targetPosition;
         }
+    }
+
+    void FixedUpdate()
+    {
+        transform.position = Vector3.Lerp(transform.position, targetPosition, positionLerpTime * Time.fixedDeltaTime);
+        transform.LookAt(Vector3.Lerp(transform.forward, targetLookAt, rotationLerpTime * Time.fixedDeltaTime));
     }
 }

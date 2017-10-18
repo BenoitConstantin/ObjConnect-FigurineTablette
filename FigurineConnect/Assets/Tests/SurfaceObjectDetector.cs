@@ -188,9 +188,9 @@ public class SurfaceObjectDetector : SimpleSingleton<SurfaceObjectDetector>
         distances[1] = Vector2.Distance(points[1], barycentricPoint);
         distances[2] = Vector2.Distance(points[2], barycentricPoint);
 
-        Debug.Log("FirstDistance : " + distances[0]);
+      /*  Debug.Log("FirstDistance : " + distances[0]);
         Debug.Log("SecondeDistance : " + distances[1]);
-        Debug.Log("ThirdDistance : " + distances[2]);
+        Debug.Log("ThirdDistance : " + distances[2]); */
 
         for (int i = 0; i < 3; i++)
         {
