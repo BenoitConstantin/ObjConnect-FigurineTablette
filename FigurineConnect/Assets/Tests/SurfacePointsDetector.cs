@@ -6,18 +6,21 @@ public class SurfacePointsDetector : MonoBehaviour {
 
     const float poundToMeter = 0.0254f;
 
+    public enum State { CALIBRATING, PROCESSING_POSITION_ROTATION}
+    public enum CalibrationStatus { CALIBRATED, PROCESSING, TOO_MANY_POINTS_DETECTED, ID_NOT_DEFINED}
+
 
     [System.Serializable]
-    public class ObjectConfiguration
+    public class SurfaceObject
     {
         public float firstPointDistance, secondPointDistance, thirdPointDistance;
         public string id;
         public Vector3 currentPosition;
     }
 
-    public ObjectConfiguration[] objects;
+    public SurfaceObject[] objects;
 
-    public List<ObjectConfiguration> detectedObjects;
+    public List<SurfaceObject> detectedObjects;
     public float positionThreshold = 0.1f;
 
     [SerializeField]
@@ -25,69 +28,113 @@ public class SurfacePointsDetector : MonoBehaviour {
 
     bool initiated = false;
 
+    private State currentState = State.PROCESSING_POSITION_ROTATION;
+    public State CurrentState
+    {
+        get { return currentState; } 
+    }
+
+    //Variables for Calibration purpose
+    private string calibrationID = null;
+    private CalibrationStatus currentCalibrationStatus = CalibrationStatus.CALIBRATED;
+
     void Update()
     {
-        if(Input.touchCount < 3)
+        switch(currentState)
         {
-            return;
-        }
+            case State.CALIBRATING:
+                currentCalibrationStatus = Calibrate(calibrationID);
 
-        Vector2 firstPoint = Input.GetTouch(0).position;
-        Vector2 secondPoint = Input.GetTouch(1).position;
-        Vector2 thirdPoint = Input.GetTouch(2).position;
+                Debug.Log(currentCalibrationStatus);
 
-       /* Debug.Log("Dpi : " + Screen.dpi);
-        Debug.Log("First Point : " + firstPoint);
-        Debug.Log("Second Point : " + secondPoint);
-        Debug.Log("Third Point : " + thirdPoint);
-        Debug.Log("Barycentric point : " + barycentricPoint); */
+                break;
+            case State.PROCESSING_POSITION_ROTATION:
 
-        if (!initiated)
-        {
+                if (Input.touchCount < 3)
+                    return;
 
-            Vector2 barycentricPoint = BarycentricPoint(firstPoint, secondPoint, thirdPoint);
+                Vector2 firstPoint = Input.GetTouch(0).position;
+                Vector2 secondPoint = Input.GetTouch(1).position;
+                Vector2 thirdPoint = Input.GetTouch(2).position;
 
-            objects[0].firstPointDistance = Vector2.Distance(firstPoint, barycentricPoint);
-            objects[0].secondPointDistance = Vector2.Distance(secondPoint, barycentricPoint);
-            objects[0].thirdPointDistance = Vector2.Distance(thirdPoint, barycentricPoint);
-            initiated = true;
-
-            Debug.Log("INITIATED");
-        }
-        else
-        {
-            foreach (ObjectConfiguration obj in objects)
-            {
-                if (DetectObject(obj.id, firstPoint, secondPoint, thirdPoint))
+                foreach (SurfaceObject obj in objects)
                 {
-                    if (!detectedObjects.Exists((x) => { return x.id.Equals(obj.id); }))
-                        detectedObjects.Add(obj);
+                    if (DetectObject(obj.id, firstPoint, secondPoint, thirdPoint))
+                    {
+                        if (!detectedObjects.Exists((x) => { return x.id.Equals(obj.id); }))
+                            detectedObjects.Add(obj);
 
-                    Vector3 position = BarycentricPoint(firstPoint,secondPoint,thirdPoint);
-                    position.z = 10;
-                    obj.currentPosition = Camera.main.ScreenToWorldPoint(position);
+                        Vector3 position = BarycentricPoint(firstPoint, secondPoint, thirdPoint);
+                        position.z = 10;
+                        obj.currentPosition = Camera.main.ScreenToWorldPoint(position);
 
-                    Debug.Log("DETECTED !!!!!!!!!!!!!!!!!!!!!");
+                        Debug.Log("DETECTED !!!!!!!!!!!!!!!!!!!!!");
+                    }
                 }
-            }
 
-            if (detectedObjects.Count > 0)
-                cube.position = detectedObjects[0].currentPosition;
+                if (detectedObjects.Count > 0)
+                    cube.position = detectedObjects[0].currentPosition;
 
 
-            Debug.Log(objects[0].firstPointDistance);
-            Debug.Log(objects[0].secondPointDistance);
-            Debug.Log(objects[0].thirdPointDistance);
+                Debug.Log(objects[0].firstPointDistance);
+                Debug.Log(objects[0].secondPointDistance);
+                Debug.Log(objects[0].thirdPointDistance);
+
+                break;
+
         }
+
+
+
 
 
         Debug.Log("\\\\\\");
     }
 
+    public void StartCalibration(string id)
+    {
+        this.currentState = State.CALIBRATING;
+        this.calibrationID = id;
+    }
+
+    public void StopCalibration()
+    {
+        this.currentState = State.PROCESSING_POSITION_ROTATION;
+        this.calibrationID = null;
+    }
+
+    CalibrationStatus Calibrate(string id)
+    {
+        if (Input.touchCount < 3)
+        {
+            return CalibrationStatus.PROCESSING;
+        }
+        else if (Input.touchCount > 3)
+        {
+            return CalibrationStatus.TOO_MANY_POINTS_DETECTED;
+        }
+        else
+        {
+            SurfaceObject obj = GetSurfaceObject(id);
+
+            if(obj == null)
+            {
+                return CalibrationStatus.ID_NOT_DEFINED;
+            }
+
+            Vector2 barycentricPoint = BarycentricPoint(Input.GetTouch(0).position, Input.GetTouch(1).position, Input.GetTouch(2).position);
+
+            objects[0].firstPointDistance = Vector2.Distance(Input.GetTouch(0).position, barycentricPoint);
+            objects[0].secondPointDistance = Vector2.Distance(Input.GetTouch(1).position, barycentricPoint);
+            objects[0].thirdPointDistance = Vector2.Distance(Input.GetTouch(2).position, barycentricPoint);
+
+            return CalibrationStatus.CALIBRATED;
+        }
+    }
 
     public bool DetectObject(string id, Vector2 firstPoint, Vector2 secondPoint, Vector2 thirdPoint)
     {
-        ObjectConfiguration obj = GetObject(id);
+        SurfaceObject obj = GetSurfaceObject(id);
         if(obj == null)
         {
             Debug.LogError("No object with this id");
@@ -113,9 +160,9 @@ public class SurfacePointsDetector : MonoBehaviour {
 
     }
 
-    ObjectConfiguration GetObject(string id)
+    SurfaceObject GetSurfaceObject(string id)
     {
-        foreach(ObjectConfiguration objConfig in objects)
+        foreach(SurfaceObject objConfig in objects)
         {
             if (objConfig.id.Equals(id))
                 return objConfig;
