@@ -22,7 +22,7 @@ public class PlayerManager : MonoBehaviour {
 
     [Header("Bomb Unit Config")]
     public int bombDamage;
-
+    public int bombTimer;
 
     // Use this for initialization
     void Start () {
