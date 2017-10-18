@@ -17,7 +17,12 @@ public class SurfacePositionSynchronizer : MonoBehaviour {
 
     void Start()
     {
-        surfaceObject = SurfaceObjectDetector.Instance.GetSurfaceObject(surfaceObjectID);
+        if (SurfaceObjectDetector.Instance == null) {
+            enabled = false;
+        } else {
+            surfaceObject = SurfaceObjectDetector.Instance.GetSurfaceObject(surfaceObjectID);
+            if (surfaceObject == null) enabled = false;
+        }
     }
 
     void Update()

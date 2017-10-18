@@ -40,8 +40,8 @@ public class PlayerManager : MonoBehaviour {
     }
 
     void SetShooterParams() {
-        soldierUnit.GetComponent<ShooterUnit>().cadence = shooterCadence;
-        soldierUnit.GetComponent<ShooterUnit>().SetDamageAttack(shooterDamage);
+        shooterUnit.GetComponent<ShooterUnit>().cadence = shooterCadence;
+        shooterUnit.GetComponent<ShooterUnit>().SetDamageAttack(shooterDamage);
     }
 
     // Update is called once per frame
