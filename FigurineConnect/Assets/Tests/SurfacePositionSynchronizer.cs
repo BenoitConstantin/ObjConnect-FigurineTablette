@@ -47,6 +47,6 @@ public class SurfacePositionSynchronizer : MonoBehaviour {
     void FixedUpdate()
     {
         transform.position = Vector3.Lerp(transform.position, targetPosition, positionLerpTime * Time.fixedDeltaTime);
-        transform.LookAt(Vector3.Lerp(transform.forward, targetLookAt, rotationLerpTime * Time.fixedDeltaTime));
+        transform.LookAt(Vector3.Lerp(transform.position + transform.forward, targetLookAt, rotationLerpTime * Time.fixedDeltaTime));
     }
 }
