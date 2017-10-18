@@ -10,7 +10,10 @@ public class SurfaceObjectDetector : SimpleSingleton<SurfaceObjectDetector>
 
     public SurfaceObject[] surfaceObjects;
 
+    [Tooltip("Distance threshold for detecting point on triangle")]
     public float positionThreshold = 0.1f;
+    [Tooltip("When a surface object is already calibrated, an average is made with that rage on the next values")]
+    public float calibrationAverageRate = 0.1f;
 
     private State currentState = State.PROCESSING_POSITION_ROTATION;
     public State CurrentState
@@ -119,6 +122,7 @@ public class SurfaceObjectDetector : SimpleSingleton<SurfaceObjectDetector>
     {
         this.currentState = State.CALIBRATING;
         this.calibratedSurfaceObject = obj;
+        obj.calibrated = false;
     }
 
     public void StopCalibration()
@@ -129,7 +133,6 @@ public class SurfaceObjectDetector : SimpleSingleton<SurfaceObjectDetector>
 
     CalibrationStatus Calibrate(SurfaceObject obj)
     {
-        Debug.Log(obj.calibratedDistances.Length);
         if (Input.touchCount < 3)
         {
             return CalibrationStatus.PROCESSING;
@@ -152,9 +155,20 @@ public class SurfaceObjectDetector : SimpleSingleton<SurfaceObjectDetector>
 
             Vector2 barycentricPoint = BarycentricPoint(positions);
 
-            obj.calibratedDistances[0] = Vector2.Distance(Input.GetTouch(0).position, barycentricPoint);
-            obj.calibratedDistances[1] = Vector2.Distance(Input.GetTouch(1).position, barycentricPoint);
-            obj.calibratedDistances[2] = Vector2.Distance(Input.GetTouch(2).position, barycentricPoint);
+
+            if (obj.calibrated)
+            {
+                obj.calibratedDistances[0] += calibrationAverageRate * Vector2.Distance(Input.GetTouch(0).position, barycentricPoint) / (1+ calibrationAverageRate);
+                obj.calibratedDistances[1] += calibrationAverageRate * Vector2.Distance(Input.GetTouch(1).position, barycentricPoint) / (1 + calibrationAverageRate);
+                obj.calibratedDistances[2] += calibrationAverageRate * Vector2.Distance(Input.GetTouch(2).position, barycentricPoint) / (1 + calibrationAverageRate);
+            }
+            else
+            {
+                obj.calibratedDistances[0] = Vector2.Distance(Input.GetTouch(0).position, barycentricPoint);
+                obj.calibratedDistances[1] = Vector2.Distance(Input.GetTouch(1).position, barycentricPoint);
+                obj.calibratedDistances[2] = Vector2.Distance(Input.GetTouch(2).position, barycentricPoint);
+            }
+
 
             obj.calibrated = true;
             return CalibrationStatus.CALIBRATED;
