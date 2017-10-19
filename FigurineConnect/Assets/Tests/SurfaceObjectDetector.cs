@@ -137,10 +137,12 @@ public class SurfaceObjectDetector : SimpleSingleton<SurfaceObjectDetector>
     {
         if (Input.touchCount < 3)
         {
+            obj.isDetected = false;
             return CalibrationStatus.PROCESSING;
         }
         else if (Input.touchCount > 3)
         {
+            obj.isDetected = false;
             return CalibrationStatus.TOO_MANY_POINTS_DETECTED;
         }
         else
@@ -171,7 +173,7 @@ public class SurfaceObjectDetector : SimpleSingleton<SurfaceObjectDetector>
                 obj.calibratedDistances[2] = Vector2.Distance(Input.GetTouch(2).position, barycentricPoint);
             }
 
-
+            obj.isDetected = true;
             obj.isCalibrated = true;
             return CalibrationStatus.CALIBRATED;
         }

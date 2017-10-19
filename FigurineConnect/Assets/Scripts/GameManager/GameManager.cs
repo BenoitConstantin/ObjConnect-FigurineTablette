@@ -25,9 +25,9 @@ public class GameManager : SimpleSingleton<GameManager> {
         }
     }
 
-    public void EndParty()
+    public void EndParty(bool victory)
     {
-        fsmOwner.SendEvent("EndParty");
+        fsmOwner.SendEvent("EndParty", victory);
     }
 
 }

@@ -50,6 +50,7 @@ public class BaseEnemy : MonoBehaviour
             if (timeUntilNextAttack <= 0)
             {
                 attackPoint.GetComponent<DefenceHealth>().currentHealth -= attack;
+                MoonFace.current.TakeDamage();
                 timeUntilNextAttack = attackCooldown;
             }
             timeUntilNextAttack -= 1 * Time.deltaTime;
