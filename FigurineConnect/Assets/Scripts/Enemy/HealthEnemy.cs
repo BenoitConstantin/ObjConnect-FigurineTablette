@@ -38,7 +38,6 @@ public class HealthEnemy : MonoBehaviour {
             life -= currentDamage;
             GetComponentInChildren<Animator>().SetTrigger("Damage");
             if (life <= 0) {
-                Debug.Log("Enemy destroyed");
                 if (explosionFX != null) {
                     GameObject explosionInstance = Instantiate(explosionFX);
                     explosionInstance.transform.parent = transform.parent;

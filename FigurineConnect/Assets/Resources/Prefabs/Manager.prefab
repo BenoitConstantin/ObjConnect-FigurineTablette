@@ -87,8 +87,13 @@ MonoBehaviour:
   shooterCadence: 0.25
   shooterDamage: 1
   soldierDamage: 1
-  bombDamage: 0
-  bombTimer: 0
+  bombForce: 20
+  timerBomb: 2
+  crazyExplosion: 0
+  wallHeight: 0.5
+  wallWidth: 1
+  wallTimeDuration: 0
+  wallTimeCooldown: 0
 --- !u!114 &114631100530345012
 MonoBehaviour:
   m_ObjectHideFlags: 1
