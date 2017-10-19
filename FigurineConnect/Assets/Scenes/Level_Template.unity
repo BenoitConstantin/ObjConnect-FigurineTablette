@@ -1650,6 +1650,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114862690325448418, guid: 06ce47790b79c944b85b97187cfefb47,
+        type: 2}
+      propertyPath: invincibleTime
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 06ce47790b79c944b85b97187cfefb47, type: 2}
   m_IsPrefabParent: 0

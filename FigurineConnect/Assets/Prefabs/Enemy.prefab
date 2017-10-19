@@ -325,7 +325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 10
-  invincibleTime: 2
+  invincibleTime: 1
   currentInvincibleTime: 0
   recieveDamage: 0
 --- !u!114 &114918956235399004
