@@ -7,6 +7,7 @@ public class PlayerManager : MonoBehaviour {
     private GameObject soldierUnit;
     private GameObject shooterUnit;
     private GameObject playerBase;
+    private GameObject wallUnit;
 
     [Header("General Config")]
     public int health;
@@ -24,10 +25,18 @@ public class PlayerManager : MonoBehaviour {
     public int bombDamage;
     public int bombTimer;
 
+    [Header("Wall Unit Config")]
+    public float wallHeight;
+    public float wallWidth;
+    public float wallTimeDuration;
+    public float wallTimeCooldown;
+
     // Use this for initialization
     void Start () {
         soldierUnit = GameObject.Find("SoldierUnit");
         shooterUnit = GameObject.Find("ShooterUnit");
+        wallUnit = GameObject.Find("WallUnit");
+
         playerBase = GameObject.FindGameObjectWithTag("PlayerBase");
         if (soldierUnit != null) {
             SetSoldierParams();
@@ -35,6 +44,11 @@ public class PlayerManager : MonoBehaviour {
         if(shooterUnit != null) {
             SetShooterParams();
         }
+        if (wallUnit != null)
+        {
+            SetWallParams();
+        }
+
         if(playerBase != null) {
             playerBase.GetComponent<PlayerBase>().health = health;
         }
@@ -47,6 +61,14 @@ public class PlayerManager : MonoBehaviour {
     void SetShooterParams() {
         shooterUnit.GetComponent<ShooterUnit>().cadence = shooterCadence;
         shooterUnit.GetComponent<ShooterUnit>().SetDamageAttack(shooterDamage);
+    }
+
+    void SetWallParams()
+    {
+        wallUnit.GetComponent<WallUnit>().SetWallHeight(wallHeight);
+        wallUnit.GetComponent<WallUnit>().SetWallWidth(wallWidth);
+        wallUnit.GetComponent<WallUnit>().SetWallDuration(wallTimeDuration);
+        wallUnit.GetComponent<WallUnit>().SetWallCooldown(wallTimeCooldown); 
     }
 
     // Update is called once per frame

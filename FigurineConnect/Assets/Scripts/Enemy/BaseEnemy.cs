@@ -26,20 +26,16 @@ public class BaseEnemy : MonoBehaviour
         attackPoint = GameObject.FindGameObjectWithTag("Defence");
     }
 
-    private void LateUpdate() {
-        /*Vector3 rotation = Vector3.zero;
-        transform.localRotation = Quaternion.Euler(rotation);*/
-    }
-    
     private void Update()
     {
-        if (Vector3.Distance(transform.position,goal) < nodeBuffer)
+        if (Vector3.Distance(transform.position, goal) < nodeBuffer)
         {
             goal = FindNextNode();
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
             if (goal != Vector3.zero)
                 agent.destination = goal;
-            else {
+            else
+            {
                 agent.destination = attackPoint.transform.position;
                 attacking = true;
             }
@@ -54,8 +50,6 @@ public class BaseEnemy : MonoBehaviour
             }
             timeUntilNextAttack -= 1 * Time.deltaTime;
         }
-
-        
     }
 
     public void UpdateHealthBar(int health) {
