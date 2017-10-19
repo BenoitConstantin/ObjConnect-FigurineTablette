@@ -34,13 +34,11 @@ public class EnemySpawnManager : MonoBehaviour {
                     tempList.CopyTo(tempArray);
 
                     spawnPoints = tempArray;
-                    if (spawnPoints.Length != 1)
+                    if (spawnPoints.Length > 0)
                     {
                         randomNest = Random.Range(0, spawnPoints.Length);
                         spawnPoints[randomNest].SpawnEnemy();
                     }
-                    else
-                        spawnPoints[0].SpawnEnemy();
                 }
                 timeUntilNextSpawn = spawnRate;
             }

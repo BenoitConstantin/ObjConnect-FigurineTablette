@@ -7,19 +7,23 @@ using UnityEngine.AI;
 public class BaseEnemy : MonoBehaviour
 {
 
-    protected uint health = 50;
-    protected uint attack = 10;
-    protected Vector2 target;
+    public float maxHealth = 50;
+    public float currentHealth = 0; 
+    public int attack = 10;
+    public float attackCooldown = 1.8f;
+    private float timeUntilNextAttack = 0;
     public Vector3 goal;
-    private Vector3 attackPoint;
-    private bool attacking = false; 
+    private GameObject attackPoint;
+    private bool attacking = false;
+    public GameObject healthBar;
 
     void Start()
     {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        currentHealth = maxHealth;
         goal = FindNextNode();
         agent.destination = goal;
-        attackPoint = GameObject.FindGameObjectWithTag("Defence").transform.position;
+        attackPoint = GameObject.FindGameObjectWithTag("Defence");
     }
 
     private void Update()
@@ -31,14 +35,23 @@ public class BaseEnemy : MonoBehaviour
             if (goal != Vector3.zero)
                 agent.destination = goal;
             else {
-                agent.destination = attackPoint;
+                agent.destination = attackPoint.transform.position;
+                attacking = true;
             }
         }
 
         if (attacking)
         {
-            //Deal damage to defence. 
+            if (timeUntilNextAttack <= 0)
+            {
+                attackPoint.GetComponent<DefenceHealth>().currentHealth -= attack;
+                timeUntilNextAttack = attackCooldown;
+            }
+            timeUntilNextAttack -= 1 * Time.deltaTime;
         }
+
+        float healthBarScale = currentHealth / maxHealth;
+        healthBar.transform.localScale = new Vector3(healthBarScale, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
     }
 
     private int nodeBuffer = 2;

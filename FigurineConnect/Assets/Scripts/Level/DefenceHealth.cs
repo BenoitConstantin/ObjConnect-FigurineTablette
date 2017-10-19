@@ -3,13 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DefenceHealth : MonoBehaviour {
-    public int health = 200;
+    public float maxHealth = 200;
+    public float currentHealth = 0;
+    public GameObject healthBar;
+
+    void Start()
+    {
+        currentHealth = maxHealth; 
+    }
 
     void Update()
     {
-        if (health <= 0)
+        float healthBarScale = currentHealth / maxHealth;
+
+        healthBar.transform.localScale = new Vector3(healthBarScale, healthBar.transform.localScale.y, healthBar.transform.localScale.z); 
+        if (currentHealth <= 0)
         {
-            //End game. 
+            Destroy(gameObject);
         }
     }
 }
