@@ -34,13 +34,10 @@ public class BaseEnemy : MonoBehaviour
         }
     }
 
-    private void LateUpdate() {
-        /*Vector3 rotation = Vector3.zero;
-        transform.localRotation = Quaternion.Euler(rotation);*/
-    }
-    
     private void Update()
     {
+
+
         Vector3 pos = transform.localPosition;
         if (pos.x < limitInf.x || pos.y < limitInf.y || pos.x > limitSup.x || pos.y > limitSup.y) {
             Destroy(gameObject);
@@ -53,7 +50,8 @@ public class BaseEnemy : MonoBehaviour
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
             if (goal != Vector3.zero)
                 agent.destination = goal;
-            else {
+            else
+            {
                 agent.destination = attackPoint.transform.position;
                 attacking = true;
             }
@@ -69,8 +67,6 @@ public class BaseEnemy : MonoBehaviour
             }
             timeUntilNextAttack -= 1 * Time.deltaTime;
         }
-
-        
     }
 
     public void UpdateHealthBar(int health) {
