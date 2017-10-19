@@ -49,7 +49,7 @@ public class BombUnit : BaseUnit {
             Invoke("StartExplosion", timeToExplode);
             
         }
-        if (Input.GetMouseButtonDown(0)) {
+        if (IsSelected() &&  Input.GetMouseButtonDown(0)) {
             SetNewPosition(Input.mousePosition.x, Input.mousePosition.y);
             Rotate();
         }
