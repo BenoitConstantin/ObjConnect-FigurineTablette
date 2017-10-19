@@ -17,6 +17,8 @@ public class SurfacePositionSynchronizer : MonoBehaviour {
 
     public float snapThreshold = 2f;
 
+    public Vector3 rotationOffset;
+
     SurfaceObject surfaceObject;
 
     Vector3 targetPosition;
@@ -37,7 +39,7 @@ public class SurfacePositionSynchronizer : MonoBehaviour {
         if (surfaceObject.isDetected)
         {
             targetPosition = Camera.main.ScreenToWorldPoint(new Vector3(surfaceObject.currentPosition.x, surfaceObject.currentPosition.y, distanceFromCamera));
-            targetLookAt = targetPosition + Camera.main.transform.TransformVector(surfaceObject.direction);
+            targetLookAt = targetPosition + Quaternion.Euler(rotationOffset) *Camera.main.transform.TransformVector(surfaceObject.direction);
 
             if (Vector3.Distance(transform.position, targetPosition) > snapThreshold)
                 transform.position = targetPosition;
