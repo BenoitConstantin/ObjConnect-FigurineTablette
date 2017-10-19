@@ -34,7 +34,7 @@ using UnityEditor;
 
     public void AnimationEnd() {
 
-        Debug.Log("Sayonara");
+      //  Debug.Log("Sayonara");
         
         if (destroyAfter) {
             Destroy(gameObject);

@@ -205,6 +205,7 @@ MonoBehaviour:
   invincibleTime: 2
   currentInvincibleTime: 0
   recieveDamage: 0
+  explosionFX: {fileID: 0}
 --- !u!114 &114135823160162670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -243,9 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34da34a2545e8784787b46b2eb83d08f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  currentHealth: 0
-  attack: 10
+  attack: 1
   attackCooldown: 1.8
   goal: {x: 0, y: 0, z: 0}
   healthBar: {fileID: 1510267229810330}
@@ -324,10 +323,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c5136361b923224d8ad94f43dcd686f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 10
+  life: 1
   invincibleTime: 1
   currentInvincibleTime: 0
   recieveDamage: 0
+  explosionFX: {fileID: 1338204079465564, guid: 33f345ef1ded3e7438f0c7f9e74660da,
+    type: 2}
 --- !u!114 &114918956235399004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -408,12 +409,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: d5f5e5f8304479d4a923b62fdb188a7b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6c99d3dcc36bab34f8bb616ae481ab51, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 157.6, y: 138.8}
+  m_Size: {x: 151.5, y: 125.666664}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

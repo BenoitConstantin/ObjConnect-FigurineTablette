@@ -38,6 +38,7 @@ public class PlayerManager : MonoBehaviour {
         wallUnit = GameObject.Find("WallUnit");
 
         playerBase = GameObject.FindGameObjectWithTag("PlayerBase");
+
         if (soldierUnit != null) {
             SetSoldierParams();
         }
@@ -50,7 +51,7 @@ public class PlayerManager : MonoBehaviour {
         }
 
         if(playerBase != null) {
-            playerBase.GetComponent<PlayerBase>().health = health;
+            playerBase.GetComponent<DefenceHealth>().maxHealth = health;
         }
 	}
 	
