@@ -61,6 +61,7 @@ public class BaseEnemy : MonoBehaviour
         {
             if (timeUntilNextAttack <= 0)
             {
+                GetComponentInChildren<Animator>().SetTrigger("Attack");
                 attackPoint.GetComponent<DefenceHealth>().currentHealth -= attack;
                 if(MoonFace.current!=null) MoonFace.current.TakeDamage();
                 timeUntilNextAttack = attackCooldown;
