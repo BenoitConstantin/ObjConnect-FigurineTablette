@@ -24,7 +24,7 @@ public class BombExplosionArea : MonoBehaviour {
         Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
         foreach (Collider hit in colliders) {
             if (hit.GetComponent<HealthEnemy>())
-                hit.GetComponent<Rigidbody>().AddExplosionForce(multiplierForceX, explosionPos, radius, 3.0F,ForceMode.Impulse);
+                hit.GetComponent<Rigidbody>().AddExplosionForce(multiplierForceX, explosionPos, radius, 6.0F,ForceMode.Impulse);
 
         }
     }
