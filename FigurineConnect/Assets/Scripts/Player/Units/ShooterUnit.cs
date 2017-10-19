@@ -25,7 +25,7 @@ public class ShooterUnit : BaseUnit {
             Shoot();
             currentTime = 0;
         }
-        Rotate();
+       
 	}
 
     void Shoot() {

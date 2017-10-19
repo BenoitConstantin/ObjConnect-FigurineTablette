@@ -43,7 +43,7 @@ public class BombUnit : BaseUnit {
     // Update is called once per frame
     void Update() {
         
-        if (IsSelected() && !startTick && Input.GetMouseButtonDown(0)) {
+        /*if (IsSelected() && !startTick && Input.GetMouseButtonDown(0)) {
             
             startTick = true;
             Invoke("StartExplosion", timeToExplode);
@@ -52,7 +52,7 @@ public class BombUnit : BaseUnit {
         if (IsSelected() &&  Input.GetMouseButtonDown(0)) {
             SetNewPosition(Input.mousePosition.x, Input.mousePosition.y);
             Rotate();
-        }
+        }*/
         
     }
 }

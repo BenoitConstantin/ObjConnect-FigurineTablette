@@ -305,9 +305,130 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114123698851572980, guid: 06e10024358f09f4aacba2e27149b4c7,
+        type: 2}
+      propertyPath: surfaceObjectID
+      value: Soldier
+      objectReference: {fileID: 0}
+    - target: {fileID: 114467368636849252, guid: 06e10024358f09f4aacba2e27149b4c7,
+        type: 2}
+      propertyPath: test
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114899442368640906, guid: 06e10024358f09f4aacba2e27149b4c7,
+        type: 2}
+      propertyPath: test
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114130965430655462, guid: 06e10024358f09f4aacba2e27149b4c7,
+        type: 2}
+      propertyPath: test
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114299986885144222, guid: 06e10024358f09f4aacba2e27149b4c7,
+        type: 2}
+      propertyPath: test
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1700166855353378, guid: 06e10024358f09f4aacba2e27149b4c7, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1517423815546804, guid: 06e10024358f09f4aacba2e27149b4c7, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790919741900136, guid: 06e10024358f09f4aacba2e27149b4c7, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 06e10024358f09f4aacba2e27149b4c7, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &946706327 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1517423815546804, guid: 06e10024358f09f4aacba2e27149b4c7,
+    type: 2}
+  m_PrefabInternal: {fileID: 946706326}
+--- !u!1 &946706328 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1790919741900136, guid: 06e10024358f09f4aacba2e27149b4c7,
+    type: 2}
+  m_PrefabInternal: {fileID: 946706326}
+--- !u!4 &946706329 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4196987806385274, guid: 06e10024358f09f4aacba2e27149b4c7,
+    type: 2}
+  m_PrefabInternal: {fileID: 946706326}
+--- !u!1 &946706330 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1224141220333192, guid: 06e10024358f09f4aacba2e27149b4c7,
+    type: 2}
+  m_PrefabInternal: {fileID: 946706326}
+--- !u!114 &946706331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 946706327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8be3bca1b69be1640b39cc761bc0b01c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  surfaceObjectID: Wall
+  transform: {fileID: 946706335}
+  distanceFromCamera: 10
+  positionLerpTime: 5
+  rotationLerpTime: 0.1
+  snapThreshold: 2
+  rotationOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &946706332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 946706328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8be3bca1b69be1640b39cc761bc0b01c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  surfaceObjectID: Bomb
+  transform: {fileID: 946706333}
+  distanceFromCamera: 10
+  positionLerpTime: 5
+  rotationLerpTime: 0.1
+  snapThreshold: 2
+  rotationOffset: {x: 0, y: 0, z: 0}
+--- !u!4 &946706333 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4400188571443032, guid: 06e10024358f09f4aacba2e27149b4c7,
+    type: 2}
+  m_PrefabInternal: {fileID: 946706326}
+--- !u!114 &946706334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 946706330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8be3bca1b69be1640b39cc761bc0b01c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  surfaceObjectID: Shooter
+  transform: {fileID: 946706329}
+  distanceFromCamera: 10
+  positionLerpTime: 5
+  rotationLerpTime: 0.1
+  snapThreshold: 2
+  rotationOffset: {x: 90, y: 0, z: 0}
+--- !u!4 &946706335 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4975565011625972, guid: 06e10024358f09f4aacba2e27149b4c7,
+    type: 2}
+  m_PrefabInternal: {fileID: 946706326}
 --- !u!114 &1365529775 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114714335271299088, guid: 06e10024358f09f4aacba2e27149b4c7,
