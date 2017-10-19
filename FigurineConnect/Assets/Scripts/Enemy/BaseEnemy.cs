@@ -24,6 +24,14 @@ public class BaseEnemy : MonoBehaviour
         goal = FindNextNode();
         agent.destination = goal;
         attackPoint = GameObject.FindGameObjectWithTag("Defence");
+
+        GameObject limits = GameObject.FindGameObjectWithTag("Limits");
+        if (limits != null) {
+            limitInf = limits.transform.Find("Min").localPosition;
+            limitSup = limits.transform.Find("Max").localPosition;
+        } else {
+            Debug.LogError("Please create and tag a Limits GameObject with Min and Max GameObjects to define the map limits");
+        }
     }
 
     private void LateUpdate() {
@@ -33,6 +41,12 @@ public class BaseEnemy : MonoBehaviour
     
     private void Update()
     {
+        Vector3 pos = transform.localPosition;
+        if (pos.x < limitInf.x || pos.y < limitInf.y || pos.x > limitSup.x || pos.y > limitSup.y) {
+            Destroy(gameObject);
+            return;
+        }
+
         if (Vector3.Distance(transform.position,goal) < nodeBuffer)
         {
             goal = FindNextNode();
@@ -50,7 +64,7 @@ public class BaseEnemy : MonoBehaviour
             if (timeUntilNextAttack <= 0)
             {
                 attackPoint.GetComponent<DefenceHealth>().currentHealth -= attack;
-                MoonFace.current.TakeDamage();
+                if(MoonFace.current!=null) MoonFace.current.TakeDamage();
                 timeUntilNextAttack = attackCooldown;
             }
             timeUntilNextAttack -= 1 * Time.deltaTime;
@@ -66,6 +80,9 @@ public class BaseEnemy : MonoBehaviour
     }
 
     private int nodeBuffer = 200;
+
+    public Vector3 limitInf { get; private set; }
+    public Vector3 limitSup { get; private set; }
 
     private Vector3 FindNextNode()
     {
