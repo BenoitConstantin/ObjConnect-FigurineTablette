@@ -39,6 +39,7 @@ public class HealthEnemy : MonoBehaviour {
             if (life <= 0) {
                 Debug.Log("Enemy destroyed");
                 Destroy(gameObject);
+                
             }
             SendMessageUpwards("UpdateHealthBar", life);
         }
