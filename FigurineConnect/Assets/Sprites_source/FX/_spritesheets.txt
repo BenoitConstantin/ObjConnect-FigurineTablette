@@ -1,0 +1,2 @@
+enemis-explosion.png,1024,1024,12
+onde-de-choc.png,1024,1024,12
