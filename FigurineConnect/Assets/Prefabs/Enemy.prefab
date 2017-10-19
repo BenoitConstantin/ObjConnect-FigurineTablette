@@ -243,9 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34da34a2545e8784787b46b2eb83d08f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  currentHealth: 0
-  attack: 10
+  attack: 1
   attackCooldown: 1.8
   goal: {x: 0, y: 0, z: 0}
   healthBar: {fileID: 1510267229810330}
@@ -324,7 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c5136361b923224d8ad94f43dcd686f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 10
+  life: 1
   invincibleTime: 1
   currentInvincibleTime: 0
   recieveDamage: 0

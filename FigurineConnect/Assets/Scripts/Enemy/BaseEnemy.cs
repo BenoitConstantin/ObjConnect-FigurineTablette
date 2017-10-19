@@ -7,8 +7,8 @@ using UnityEngine.AI;
 public class BaseEnemy : MonoBehaviour
 {
 
-    public float maxHealth = 50;
-    public float currentHealth = 0; 
+    //public float maxHealth = 50;
+    //public float currentHealth = 0; 
     public int attack = 10;
     public float attackCooldown = 1.8f;
     private float timeUntilNextAttack = 0;
@@ -20,7 +20,7 @@ public class BaseEnemy : MonoBehaviour
     void Start()
     {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
-        currentHealth = maxHealth;
+       // currentHealth = maxHealth;
         goal = FindNextNode();
         agent.destination = goal;
         attackPoint = GameObject.FindGameObjectWithTag("Defence");
@@ -59,8 +59,8 @@ public class BaseEnemy : MonoBehaviour
     }
 
     public void UpdateHealthBar(int health) {
-        currentHealth = health;
-        float healthBarScale = currentHealth / maxHealth;
+       // currentHealth = health;
+       // float healthBarScale = currentHealth / maxHealth;
         //healthBar.transform.localScale = new Vector3(healthBarScale, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
     }
 
