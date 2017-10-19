@@ -8,7 +8,6 @@ public class GameManager : SimpleSingleton<GameManager> {
     [SerializeField]
     FSMOwner fsmOwner;
 
-
     override protected void Awake()
     {
         base.Awake();
