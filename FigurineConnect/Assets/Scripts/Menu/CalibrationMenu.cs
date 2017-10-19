@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CalibrationMenu : MonoBehaviour {
+public class CalibrationMenu : MonoBehaviour
+{
 
     [SerializeField]
     GameObject calibrationButtonPrefab;
@@ -19,47 +20,78 @@ public class CalibrationMenu : MonoBehaviour {
 
     List<CalibrationButton> calibrationButtons = new List<CalibrationButton>();
 
-   
 
-    float timerCalibration;
-    float timerOutCalibration;
+
+    float timerCalibration = -1;
+    float timerOutCalibration = -1;
     SurfaceObject calibratingSurfaceObject = null;
 
     void Awake()
     {
-        foreach(SurfaceObject surfaceObject in SurfaceObjectDetector.Instance.surfaceObjects)
+        foreach (SurfaceObject surfaceObject in SurfaceObjectDetector.Instance.surfaceObjects)
         {
             GameObject obj = Instantiate(calibrationButtonPrefab);
-            CalibrationButton calibrationButton =  obj.GetComponent<CalibrationButton>();
+            CalibrationButton calibrationButton = obj.GetComponent<CalibrationButton>();
             calibrationButton.Init(this, surfaceObject);
             calibrationButtons.Add(calibrationButton);
             calibrationButton.transform.SetParent(calibrationButtonParent);
         }
 
         calibrationText.enabled = false;
-        this.enabled = false;
+    }
+
+    void OnEnable()
+    {
+        calibrationText.enabled = false;
+
+        foreach (CalibrationButton calibrationButton in calibrationButtons)
+            calibrationButton.gameObject.SetActive(true);
+
+        timerCalibration = -1;
+        timerOutCalibration = -1;
+    }
+
+    void OnDisable()
+    {
+        foreach (CalibrationButton calibrationButton in calibrationButtons)
+            calibrationButton.gameObject.SetActive(true);
+
+        calibrationText.enabled = false;
+
+        SurfaceObjectDetector.Instance.StopCalibration();
     }
 
     void Update()
     {
-        if(Time.time <= timerCalibration)
+
+        if (SurfaceObjectDetector.Instance.CurrentState != SurfaceObjectDetector.State.CALIBRATING)
+            return;
+
+        if (Time.time + timeToCalibrate <= timerCalibration)
         {
             foreach (CalibrationButton calibrationButton in calibrationButtons)
                 calibrationButton.gameObject.SetActive(true);
 
-            this.enabled = false;
             calibrationText.enabled = false;
-        }
-
-        if (!SurfaceObjectDetector.Instance.calibratingSurfaceObject.isDetected)
-        {
-            timerOutCalibration = Time.time + timeOutCalibration;
+            SurfaceObjectDetector.Instance.StopCalibration();
         }
         else
-            timerCalibration += Time.deltaTime;
+        {
+            if (!SurfaceObjectDetector.Instance.calibratingSurfaceObject.isDetected)
+            {
+                timerOutCalibration = Time.time + timeOutCalibration;
+            }
+            else
+            {
+                timerCalibration += 2f * Time.deltaTime;
+                timerOutCalibration = -1;
+            }
 
-        if (Time.time > timerOutCalibration)
-            timerCalibration = 0;
+            if (timerOutCalibration != -1 && Time.time > timerOutCalibration)
+            {
+                timerCalibration = Time.time;
+            }
+        }
     }
 
     public void Calibrate(SurfaceObject surfaceObject)
@@ -71,7 +103,8 @@ public class CalibrationMenu : MonoBehaviour {
 
         calibrationText.enabled = true;
         calibrationText.text = "Calibrating : " + surfaceObject.id;
-        this.enabled = true;
+        timerCalibration = Time.time;
+        timerOutCalibration = -1;
     }
 
 }
