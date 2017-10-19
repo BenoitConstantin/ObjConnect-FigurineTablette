@@ -16,8 +16,10 @@ public class UnitManager : MonoBehaviour {
 	}
 
     public void UnitSelection() {
-        foreach (GameObject item in units) {
-            item.GetComponent<BaseUnit>().SetUnitSelection(false);
+        if (units.Length > 0) {
+            foreach (GameObject item in units) {
+                item.GetComponent<BaseUnit>().SetUnitSelection(false);
+            }
         }
     }
 }

@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f30b516516eca346a6f813d1899aa26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: 0
+  test: 1
   actionTime: 0
   rotation: 0
   arcBullet: {fileID: 1483167267627146}

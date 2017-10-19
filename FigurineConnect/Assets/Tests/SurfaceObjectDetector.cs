@@ -77,9 +77,9 @@ public class SurfaceObjectDetector : SimpleSingleton<SurfaceObjectDetector>
         {
             bool reset = false; //Reset the search because a triangle is detected and somes points are remove from the solution
 
-            for (int j = (i + 1) % availablePositions.Count; j != i && availablePositions.Count >= 3 && !reset; j = (j + 1) % availablePositions.Count)
+            for (int j = (i + 1) % availablePositions.Count; j != i && availablePositions.Count >= 3; j = (j + 1) % availablePositions.Count)
             {
-                for (int k = (j + 1) % availablePositions.Count; k != i && k != j && availablePositions.Count >= 3 && !reset; k = (k + 1) % availablePositions.Count)
+                for (int k = (j + 1) % availablePositions.Count; k != i && k != j && availablePositions.Count >= 3; k = (k + 1) % availablePositions.Count)
                 {
                     positions[0] = availablePositions[i];
                     positions[1] = availablePositions[j];
@@ -105,8 +105,13 @@ public class SurfaceObjectDetector : SimpleSingleton<SurfaceObjectDetector>
                             break;
                         }
                     }
+
+                    if (reset)
+                        break;
                 }
 
+                if (reset)
+                    break;
             }
 
             if(!reset)
@@ -155,9 +160,9 @@ public class SurfaceObjectDetector : SimpleSingleton<SurfaceObjectDetector>
 
             if (obj.isCalibrated)
             {
-                obj.calibratedDistances[0] += calibrationAverageRate * Vector2.Distance(Input.GetTouch(0).position, barycentricPoint) / (1+ calibrationAverageRate);
-                obj.calibratedDistances[1] += calibrationAverageRate * Vector2.Distance(Input.GetTouch(1).position, barycentricPoint) / (1 + calibrationAverageRate);
-                obj.calibratedDistances[2] += calibrationAverageRate * Vector2.Distance(Input.GetTouch(2).position, barycentricPoint) / (1 + calibrationAverageRate);
+                obj.calibratedDistances[0] = (obj.calibratedDistances[0] + calibrationAverageRate * Vector2.Distance(Input.GetTouch(0).position, barycentricPoint)) / (1+ calibrationAverageRate);
+                obj.calibratedDistances[1] = (obj.calibratedDistances[1] + calibrationAverageRate * Vector2.Distance(Input.GetTouch(1).position, barycentricPoint)) / (1 + calibrationAverageRate);
+                obj.calibratedDistances[2] = (obj.calibratedDistances[2] + calibrationAverageRate * Vector2.Distance(Input.GetTouch(2).position, barycentricPoint)) / (1 + calibrationAverageRate);
             }
             else
             {
@@ -188,9 +193,9 @@ public class SurfaceObjectDetector : SimpleSingleton<SurfaceObjectDetector>
         distances[1] = Vector2.Distance(points[1], barycentricPoint);
         distances[2] = Vector2.Distance(points[2], barycentricPoint);
 
-        Debug.Log("FirstDistance : " + distances[0]);
+      /*  Debug.Log("FirstDistance : " + distances[0]);
         Debug.Log("SecondeDistance : " + distances[1]);
-        Debug.Log("ThirdDistance : " + distances[2]);
+        Debug.Log("ThirdDistance : " + distances[2]); */
 
         for (int i = 0; i < 3; i++)
         {
