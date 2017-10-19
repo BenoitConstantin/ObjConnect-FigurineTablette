@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4396921247621052}
   - component: {fileID: 212188376430073664}
   - component: {fileID: 95504986405397996}
-  - component: {fileID: 114778445923371844}
   m_Layer: 0
   m_Name: FX_bombe-explosion
   m_TagString: Untagged
@@ -59,20 +58,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114778445923371844
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1950620435223132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc0238439e6bc77439055053b8275e05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroyAfter: 1
-  instantiateFX: 0
-  FXtoInstantiate: {fileID: 0}
 --- !u!212 &212188376430073664
 SpriteRenderer:
   m_ObjectHideFlags: 1
