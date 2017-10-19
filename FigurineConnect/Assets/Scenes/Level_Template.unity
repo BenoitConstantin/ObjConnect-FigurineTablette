@@ -256,6 +256,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1338204079465564, guid: 33f345ef1ded3e7438f0c7f9e74660da, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33f345ef1ded3e7438f0c7f9e74660da, type: 2}
   m_IsPrefabParent: 0
@@ -389,24 +393,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 212188376430073664, guid: 068ed93f9737ba34c9390033dad9a613,
         type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: dbdc078d4a827304db0a713f27767163,
-        type: 3}
-    - target: {fileID: 212188376430073664, guid: 068ed93f9737ba34c9390033dad9a613,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 212188376430073664, guid: 068ed93f9737ba34c9390033dad9a613,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 212188376430073664, guid: 068ed93f9737ba34c9390033dad9a613,
-        type: 2}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
+      propertyPath: m_SortingOrder
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1950620435223132, guid: 068ed93f9737ba34c9390033dad9a613, type: 2}
       propertyPath: m_IsActive
