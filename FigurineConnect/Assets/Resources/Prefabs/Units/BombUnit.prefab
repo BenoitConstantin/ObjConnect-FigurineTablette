@@ -235,6 +235,7 @@ MonoBehaviour:
   multiplierForceX: 20
   multiplierForceY: 20
   hasExploded: 0
+  crazyExplosion: 0
 --- !u!114 &114647225445906860
 MonoBehaviour:
   m_ObjectHideFlags: 1

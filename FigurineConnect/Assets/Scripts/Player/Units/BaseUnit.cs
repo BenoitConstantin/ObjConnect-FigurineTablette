@@ -31,6 +31,7 @@ public class BaseUnit : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+        if(test)
         Rotate();
         
 	}

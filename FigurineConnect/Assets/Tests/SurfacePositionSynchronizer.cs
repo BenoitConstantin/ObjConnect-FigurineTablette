@@ -17,6 +17,8 @@ public class SurfacePositionSynchronizer : MonoBehaviour {
 
     public float snapThreshold = 2f;
 
+    public Vector3 rotationOffset;
+
     SurfaceObject surfaceObject;
 
     Vector3 targetPosition;
@@ -47,6 +49,6 @@ public class SurfacePositionSynchronizer : MonoBehaviour {
     void FixedUpdate()
     {
         transform.position = Vector3.Lerp(transform.position, targetPosition, positionLerpTime * Time.fixedDeltaTime);
-        transform.LookAt(Vector3.Lerp(transform.position + transform.forward, targetLookAt, rotationLerpTime * Time.fixedDeltaTime));
+        transform.LookAt(Vector3.Lerp(transform.position + transform.forward, targetLookAt, rotationLerpTime * Time.fixedDeltaTime), this.transform.up);
     }
 }

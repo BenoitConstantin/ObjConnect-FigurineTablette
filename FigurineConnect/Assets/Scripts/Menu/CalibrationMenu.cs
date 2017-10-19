@@ -24,6 +24,7 @@ public class CalibrationMenu : MonoBehaviour
 
     float timerCalibration = -1;
     float timerOutCalibration = -1;
+    float lastTimeDetected;
     SurfaceObject calibratingSurfaceObject = null;
 
     void Awake()
@@ -67,7 +68,7 @@ public class CalibrationMenu : MonoBehaviour
         if (SurfaceObjectDetector.Instance.CurrentState != SurfaceObjectDetector.State.CALIBRATING)
             return;
 
-        if (Time.time + timeToCalibrate <= timerCalibration)
+        if (timeToCalibrate <= timerCalibration)
         {
             foreach (CalibrationButton calibrationButton in calibrationButtons)
                 calibrationButton.gameObject.SetActive(true);
@@ -77,19 +78,20 @@ public class CalibrationMenu : MonoBehaviour
         }
         else
         {
-            if (!SurfaceObjectDetector.Instance.calibratingSurfaceObject.isDetected)
+            if (SurfaceObjectDetector.Instance.currentCalibrationStatus != SurfaceObjectDetector.CalibrationStatus.CALIBRATED)
             {
                 timerOutCalibration = Time.time + timeOutCalibration;
+
+                if (timerOutCalibration != -1 && Time.time > timerOutCalibration)
+                {
+                    timerCalibration = 0;
+                }
             }
             else
             {
-                timerCalibration += 2f * Time.deltaTime;
+                timerCalibration += Time.deltaTime;
                 timerOutCalibration = -1;
-            }
-
-            if (timerOutCalibration != -1 && Time.time > timerOutCalibration)
-            {
-                timerCalibration = Time.time;
+                lastTimeDetected = Time.time;
             }
         }
     }
@@ -103,7 +105,7 @@ public class CalibrationMenu : MonoBehaviour
 
         calibrationText.enabled = true;
         calibrationText.text = "Calibrating : " + surfaceObject.id;
-        timerCalibration = Time.time;
+        timerCalibration = 0;
         timerOutCalibration = -1;
     }
 
