@@ -2911,6 +2911,7 @@ MonoBehaviour:
   cadence: 0.25
   bullet: {fileID: 1036043224123924, guid: 87e1e4e64948d3c4ba6ba581556c1487, type: 2}
   head: {fileID: 4389831131722154}
+  fx: {fileID: 0}
 --- !u!114 &114488298878561864
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -38,7 +38,6 @@ public class ShooterUnit : BaseUnit {
         //newBullet.GetComponent<SimpleBullet>().SetDirection(head.position - transform.position, rotation);
         newBullet.GetComponent<SimpleBullet>().SetDirection(transform.up, rotation);
         newBullet.GetComponent<SimpleBullet>().SetBulletDamage(bulletDamage);
-
         //FX
         if (fx != null) {
             //GameObject fxx = Instantiate(fx);

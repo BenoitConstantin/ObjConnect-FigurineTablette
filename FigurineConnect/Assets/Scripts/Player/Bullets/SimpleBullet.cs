@@ -24,6 +24,7 @@ public class SimpleBullet : MonoBehaviour {
         } else {
             Debug.LogError("Please create and tag a Limits GameObject with Min and Max GameObjects to define the map limits");
         }
+        SoundManager.Instance.PlayRayonShootSFX();
 	}
 
     private void Update() {
