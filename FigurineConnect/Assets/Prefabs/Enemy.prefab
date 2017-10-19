@@ -205,6 +205,7 @@ MonoBehaviour:
   invincibleTime: 2
   currentInvincibleTime: 0
   recieveDamage: 0
+  explosionFX: {fileID: 0}
 --- !u!114 &114135823160162670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -326,6 +327,8 @@ MonoBehaviour:
   invincibleTime: 1
   currentInvincibleTime: 0
   recieveDamage: 0
+  explosionFX: {fileID: 1338204079465564, guid: 33f345ef1ded3e7438f0c7f9e74660da,
+    type: 2}
 --- !u!114 &114918956235399004
 MonoBehaviour:
   m_ObjectHideFlags: 1

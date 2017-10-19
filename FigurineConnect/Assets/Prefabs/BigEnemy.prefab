@@ -228,9 +228,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 2
-  invincibleTime: 1
+  invincibleTime: 1.5
   currentInvincibleTime: 0
   recieveDamage: 0
+  explosionFX: {fileID: 1338204079465564, guid: 33f345ef1ded3e7438f0c7f9e74660da,
+    type: 2}
 --- !u!114 &114129010062458596
 MonoBehaviour:
   m_ObjectHideFlags: 1

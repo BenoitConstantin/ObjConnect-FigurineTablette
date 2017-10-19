@@ -11,6 +11,7 @@ public class HealthEnemy : MonoBehaviour {
     public float invincibleTime;
     public float currentInvincibleTime;
     public bool recieveDamage;
+    public GameObject explosionFX;
 	// Use this for initialization
 	void Start () {
         
@@ -38,6 +39,11 @@ public class HealthEnemy : MonoBehaviour {
             GetComponentInChildren<Animator>().SetTrigger("Damage");
             if (life <= 0) {
                 Debug.Log("Enemy destroyed");
+                if (explosionFX != null) {
+                    GameObject explosionInstance = Instantiate(explosionFX);
+                    explosionInstance.transform.parent = transform.parent;
+                    explosionInstance.transform.localPosition = transform.localPosition;
+                }
                 Destroy(gameObject);
                 
             }
