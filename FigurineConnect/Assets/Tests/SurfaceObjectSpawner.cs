@@ -38,7 +38,8 @@ public class SurfaceObjectSpawner : MonoBehaviour {
     {
         foreach (GameObject obj in surfaceObjectToGameObjects.Values)
         {
-            obj.SetActive(false);
+            if(obj)
+                obj.SetActive(false);
         }
     }
 
