@@ -8,7 +8,7 @@ public class SimpleBullet : MonoBehaviour {
     [Range(0,1)]
     public float scaleTime = 1;
     private Vector3 position;
-    private Rigidbody2D rigid;
+    private Rigidbody rigid;
     private Vector3 limitInf;
     private Vector3 limitSup;
     private Vector3 forward;
@@ -16,7 +16,7 @@ public class SimpleBullet : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        rigid = GetComponent<Rigidbody2D>();
+        rigid = GetComponent<Rigidbody>();
         GameObject limits = GameObject.FindGameObjectWithTag("Limits");
         if (limits != null) {
             limitInf = limits.transform.Find("Min").localPosition;
@@ -52,7 +52,7 @@ public class SimpleBullet : MonoBehaviour {
         damage = value;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
+    private void OnTriggerEnter(Collider collision) {
         HealthEnemy enemy = collision.GetComponent<HealthEnemy>();
         if (enemy != null) {
             enemy.SetLife(damage,false);

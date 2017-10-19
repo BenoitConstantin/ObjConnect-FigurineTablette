@@ -47,6 +47,6 @@ public class BaseUnit : MonoBehaviour {
     }
 
     public void SetNewPosition(float posX, float posY) {   
-        transform.position = mainCamera.ScreenToWorldPoint(new Vector3(posX, posY, 10));
+        transform.position = mainCamera.ScreenToWorldPoint(new Vector3(posX, posY, 864));
     }
 }

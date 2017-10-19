@@ -31,7 +31,7 @@ public class ShooterUnit : BaseUnit {
     void Shoot() {
         GameObject newBullet = Instantiate(bullet);
         newBullet.transform.parent = (bulletLayer != null)? bulletLayer: transform.parent;
-        newBullet.transform.localPosition = transform.localPosition;
+        newBullet.transform.position = transform.position;
         newBullet.GetComponent<SimpleBullet>().SetDirection(head.position - transform.position, rotation);
         newBullet.GetComponent<SimpleBullet>().SetBulletDamage(bulletDamage);
     }
