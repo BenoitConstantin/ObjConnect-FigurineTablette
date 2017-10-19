@@ -6,7 +6,7 @@ public class SurfaceObjectDetector : SimpleSingleton<SurfaceObjectDetector>
 {
 
     public enum State { CALIBRATING, PROCESSING_POSITION_ROTATION }
-    public enum CalibrationStatus { CALIBRATED, PROCESSING, TOO_MANY_POINTS_DETECTED, SURFACE_OBJ_NOT_DEFINED }
+    public enum CalibrationStatus { CALIBRATED, PROCESSING, TOO_MANY_POINTS_DETECTED, SURFACE_OBJ_NOT_DEFINED, TRIANGLE_ALREADY_GIVEN }
 
     public SurfaceObject[] surfaceObjects;
 
@@ -23,7 +23,8 @@ public class SurfaceObjectDetector : SimpleSingleton<SurfaceObjectDetector>
 
     //Variables for Calibration purpose
     public SurfaceObject calibratingSurfaceObject { get; private set; }
-    private CalibrationStatus currentCalibrationStatus = CalibrationStatus.CALIBRATED;
+    public CalibrationStatus currentCalibrationStatus { get; private set; }
+
 
     void Update()
     {
@@ -152,10 +153,20 @@ public class SurfaceObjectDetector : SimpleSingleton<SurfaceObjectDetector>
                 return CalibrationStatus.SURFACE_OBJ_NOT_DEFINED;
             }
 
+
             Vector2[] positions = new Vector2[3];
 
             for (int i = 0; i < 3; i++)
                 positions[i] = Input.GetTouch(i).position;
+
+            foreach (SurfaceObject surfaceObject in surfaceObjects)
+            {
+                if (surfaceObject != obj && surfaceObject.isCalibrated && DetectObject(surfaceObject, positions))
+                {
+                    return CalibrationStatus.TRIANGLE_ALREADY_GIVEN;
+                }
+            }
+
 
             Vector2 barycentricPoint = BarycentricPoint(positions);
 

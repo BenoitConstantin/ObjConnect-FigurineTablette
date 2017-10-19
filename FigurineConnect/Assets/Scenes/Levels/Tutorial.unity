@@ -187,6 +187,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!4 &459102652 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4974440118753074, guid: d7949db47f329dd4cbafa560e0cc26bc,
+    type: 2}
+  m_PrefabInternal: {fileID: 2094584046}
+--- !u!4 &565749151 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4632124635964336, guid: d7949db47f329dd4cbafa560e0cc26bc,
+    type: 2}
+  m_PrefabInternal: {fileID: 2094584046}
+--- !u!4 &601517197 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4872441487382206, guid: d7949db47f329dd4cbafa560e0cc26bc,
+    type: 2}
+  m_PrefabInternal: {fileID: 2094584046}
+--- !u!4 &798941139 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4525083526958270, guid: d7949db47f329dd4cbafa560e0cc26bc,
+    type: 2}
+  m_PrefabInternal: {fileID: 2094584046}
 --- !u!1 &1135848416
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,6 +296,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1230432262 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4810523224545170, guid: d7949db47f329dd4cbafa560e0cc26bc,
+    type: 2}
+  m_PrefabInternal: {fileID: 2094584046}
+--- !u!95 &1375077163 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 95671320125904762, guid: d7949db47f329dd4cbafa560e0cc26bc,
+    type: 2}
+  m_PrefabInternal: {fileID: 2094584046}
 --- !u!1 &1644835652
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,9 +378,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a7dbb6bbdf4ffb46ab7dd87ba8191e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boundGraphSerialization: '{"version":2.6,"type":"NodeCanvas.StateMachines.FSM","translation":{"x":-4687.0,"y":-5115.0},"nodes":[{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[{"layerIndex":{},"stateName":{"_value":"BeginTutorial"},"waitUntilFinish":true,"$type":"NodeCanvas.Tasks.Actions.MecanimPlayAnimation"}]},"_position":{"x":5221.0,"y":5230.0},"_name":"InitialState","$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_actionList":{"actions":[{"surfaceObjectID":"Soldier","$type":"StartSurfaceObjectCalibration"},{"surfaceObjectID":"Soldier","$type":"WaitSurfaceObjectCalibration"},{"$type":"StopSurfaceObjectCalibration"}]},"_position":{"x":5038.0,"y":5386.0},"_name":"WaitCalibrationSoldier","$type":"NodeCanvas.StateMachines.ActionState","$id":"8"},{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[{"layerIndex":{},"stateName":{"_value":"Soldier"},"$type":"NodeCanvas.Tasks.Actions.MecanimPlayAnimation"}]},"_position":{"x":5268.0,"y":5437.0},"_name":"SoldierTutorial","$type":"NodeCanvas.StateMachines.ActionState","$id":"14"}],"connections":[{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"14"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"localBlackboard":{"_name":"Local
+  boundGraphSerialization: '{"version":2.6,"type":"NodeCanvas.StateMachines.FSM","translation":{"x":-5003.0,"y":-5442.0},"zoomFactor":0.9999121,"nodes":[{"_actionList":{"actions":[{"setTo":"Activate","overrideAgent":{"_value":1},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Deactivate","overrideAgent":{"_value":2},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Deactivate","overrideAgent":{"_value":3},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Deactivate","overrideAgent":{"_value":4},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"surfaceObjectID":"Bomb","$type":"StartSurfaceObjectCalibration"},{"surfaceObjectID":"Bomb","animator":{"_value":5},"$type":"WaitSurfaceObjectCalibration"},{"$type":"StopSurfaceObjectCalibration"}]},"_position":{"x":5068.0,"y":5319.0},"_name":"WaitCalibrationBomb","$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_actionList":{"actions":[{"setTo":"Deactivate","overrideAgent":{"_value":1},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Activate","overrideAgent":{"_value":2},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Deactivate","overrideAgent":{"_value":3},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Deactivate","overrideAgent":{"_value":4},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"surfaceObjectID":"Shooter","$type":"StartSurfaceObjectCalibration"},{"surfaceObjectID":"Shooter","animator":{"_value":5},"$type":"WaitSurfaceObjectCalibration"},{"$type":"StopSurfaceObjectCalibration"}]},"_position":{"x":4910.0,"y":5558.0},"_name":"WaitCalibrationShooter","$type":"NodeCanvas.StateMachines.ActionState","$id":"17"},{"_actionList":{"actions":[{"setTo":"Deactivate","overrideAgent":{"_value":1},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Deactivate","overrideAgent":{"_value":2},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Activate","overrideAgent":{"_value":3},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Deactivate","overrideAgent":{"_value":4},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"surfaceObjectID":"Wall","$type":"StartSurfaceObjectCalibration"},{"surfaceObjectID":"Wall","animator":{"_value":5},"$type":"WaitSurfaceObjectCalibration"},{"$type":"StopSurfaceObjectCalibration"}]},"_position":{"x":5233.997,"y":5680.663},"_name":"WaitCalibrationWall","$type":"NodeCanvas.StateMachines.ActionState","$id":"32"},{"_actionList":{"actions":[{"setTo":"Deactivate","overrideAgent":{"_value":1},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Deactivate","overrideAgent":{"_value":2},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Deactivate","overrideAgent":{"_value":3},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Activate","overrideAgent":{"_value":4},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"surfaceObjectID":"Soldier","$type":"StartSurfaceObjectCalibration"},{"surfaceObjectID":"Soldier","animator":{"_value":5},"$type":"WaitSurfaceObjectCalibration"},{"$type":"StopSurfaceObjectCalibration"},{"touchNumber":{},"$type":"WaitTouch"},{"$type":"EndTutorial"}]},"_position":{"x":5473.99,"y":5836.658},"_name":"WaitCalibrationWall","$type":"NodeCanvas.StateMachines.ActionState","$id":"47"}],"connections":[{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"17"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"17"},"_targetNode":{"$ref":"32"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"32"},"_targetNode":{"$ref":"47"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"localBlackboard":{"_name":"Local
     Blackboard","_variables":{}}}'
-  boundGraphObjectReferences: []
+  boundGraphObjectReferences:
+  - {fileID: 0}
+  - {fileID: 565749151}
+  - {fileID: 459102652}
+  - {fileID: 1230432262}
+  - {fileID: 601517197}
+  - {fileID: 1375077163}
   enableAction: 0
   disableAction: 0
   versionUpdateProxyGraph: {fileID: 0}
@@ -365,7 +401,50 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 211.14764, y: -564.41595, z: 6712.713}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 798941139}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2094584046
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1644835657}
+    m_Modifications:
+    - target: {fileID: 4525083526958270, guid: d7949db47f329dd4cbafa560e0cc26bc, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -211.2205
+      objectReference: {fileID: 0}
+    - target: {fileID: 4525083526958270, guid: d7949db47f329dd4cbafa560e0cc26bc, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 563.60864
+      objectReference: {fileID: 0}
+    - target: {fileID: 4525083526958270, guid: d7949db47f329dd4cbafa560e0cc26bc, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -6713.0977
+      objectReference: {fileID: 0}
+    - target: {fileID: 4525083526958270, guid: d7949db47f329dd4cbafa560e0cc26bc, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4525083526958270, guid: d7949db47f329dd4cbafa560e0cc26bc, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4525083526958270, guid: d7949db47f329dd4cbafa560e0cc26bc, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4525083526958270, guid: d7949db47f329dd4cbafa560e0cc26bc, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4525083526958270, guid: d7949db47f329dd4cbafa560e0cc26bc, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d7949db47f329dd4cbafa560e0cc26bc, type: 2}
+  m_IsPrefabParent: 0

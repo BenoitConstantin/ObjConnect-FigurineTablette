@@ -30,4 +30,9 @@ public class GameManager : SimpleSingleton<GameManager> {
         fsmOwner.SendEvent("EndParty", victory);
     }
 
+    public void EndTutorial()
+    {
+        fsmOwner.SendEvent("EndTutorial");
+    }
+
 }
