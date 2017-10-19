@@ -13,8 +13,8 @@ public class HealthEnemy : MonoBehaviour {
     public bool recieveDamage;
 	// Use this for initialization
 	void Start () {
-		
-	}
+        
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -40,7 +40,9 @@ public class HealthEnemy : MonoBehaviour {
                 Debug.Log("Enemy destroyed");
                 Destroy(gameObject);
             }
+            SendMessageUpwards("UpdateHealthBar", life);
         }
+
     }
 
     public void FinishDamage() {
