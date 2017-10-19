@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour {
     private GameObject shooterUnit;
     private GameObject playerBase;
     private GameObject wallUnit;
+    private GameObject bombUnit;
 
     [Header("General Config")]
     public int health;
@@ -22,8 +23,9 @@ public class PlayerManager : MonoBehaviour {
     public int soldierDamage;
 
     [Header("Bomb Unit Config")]
-    public int bombDamage;
-    public int bombTimer;
+    public float bombForce;
+    public float timerBomb;
+    public bool crazyExplosion;
 
     [Header("Wall Unit Config")]
     public float wallHeight;
@@ -36,7 +38,7 @@ public class PlayerManager : MonoBehaviour {
         soldierUnit = GameObject.Find("SoldierUnit");
         shooterUnit = GameObject.Find("ShooterUnit");
         wallUnit = GameObject.Find("WallUnit");
-
+        bombUnit = GameObject.Find("BombUnit");
         playerBase = GameObject.FindGameObjectWithTag("PlayerBase");
 
         if (soldierUnit != null) {
@@ -48,6 +50,9 @@ public class PlayerManager : MonoBehaviour {
         if (wallUnit != null)
         {
             SetWallParams();
+        }
+        if (bombUnit != null) {
+            SetBombUnitParams();
         }
 
         if(playerBase != null) {
@@ -72,6 +77,10 @@ public class PlayerManager : MonoBehaviour {
         wallUnit.GetComponent<WallUnit>().SetWallCooldown(wallTimeCooldown); 
     }
 
+    void SetBombUnitParams() {
+        bombUnit.GetComponent<BombUnit>().timeToExplode = timerBomb;
+        bombUnit.GetComponent<BombUnit>().explosionArea.GetComponent<BombExplosionArea>().crazyExplosion = crazyExplosion;
+    }
     // Update is called once per frame
     void Update () {
 		

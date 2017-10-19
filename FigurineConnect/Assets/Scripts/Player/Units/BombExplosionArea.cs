@@ -8,6 +8,7 @@ public class BombExplosionArea : MonoBehaviour {
     public float multiplierForceX;
     public float multiplierForceY;
     public bool hasExploded = false;
+    public bool crazyExplosion = false;
     // Use this for initialization
     void Start () {
 		
@@ -28,8 +29,16 @@ public class BombExplosionArea : MonoBehaviour {
 
         }
     }
-
-    void OnTriggerEnter(Collider collision) {
+    void OnTriggerStay(Collider collision) {
+        if (crazyExplosion) {
+            Vector3 explosionPos = transform.position;
+            float radius = transform.localScale.x / 2;
+            if (collision.GetComponent<HealthEnemy>())
+                collision.GetComponent<Rigidbody>().AddExplosionForce(multiplierForceX, explosionPos, radius, 6.0F, ForceMode.Impulse);
+        }
+    }
+        /*void OnTriggerEnter(Collider collision) {
+        
         //if (startExplosion) 
         /*if (hasExploded) {
             HealthEnemy e = collision.GetComponent<HealthEnemy>();
@@ -44,5 +53,5 @@ public class BombExplosionArea : MonoBehaviour {
                 //collision.GetComponent<Rigidbody>().AddForce(-BombScript.LastForce);
             }
         }*/
-    }
+    
 }
