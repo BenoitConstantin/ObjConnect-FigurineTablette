@@ -25,14 +25,15 @@ public class ShooterUnit : BaseUnit {
             Shoot();
             currentTime = 0;
         }
-       
+        if (test && IsSelected()) Rotate();
 	}
 
     void Shoot() {
         GameObject newBullet = Instantiate(bullet);
         newBullet.transform.parent = (bulletLayer != null)? bulletLayer: transform.parent;
         newBullet.transform.position = transform.position;
-        newBullet.GetComponent<SimpleBullet>().SetDirection(head.position - transform.position, rotation);
+        //newBullet.GetComponent<SimpleBullet>().SetDirection(head.position - transform.position, rotation);
+        newBullet.GetComponent<SimpleBullet>().SetDirection(transform.up, rotation);
         newBullet.GetComponent<SimpleBullet>().SetBulletDamage(bulletDamage);
     }
 

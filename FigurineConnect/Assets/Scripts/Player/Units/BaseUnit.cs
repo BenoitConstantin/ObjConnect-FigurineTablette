@@ -42,8 +42,15 @@ public class BaseUnit : MonoBehaviour {
             selected = true;
         }
     }
-
+    
     public void Rotate() {
+        //Vector3 target = transform.localPosition + transform.forward * 10;
+        //Vector3.
+        /*Quaternion quart = Quaternion.Euler(new Vector3(rotation,rotation,rotation));
+        Debug.Log(quart);
+        quart.Set(0, 0, quart.z, quart.w);
+        transform.rotation = quart;*/
+
         transform.rotation = Quaternion.Euler(0, 0, rotation);
     }
 
