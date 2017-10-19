@@ -56,6 +56,12 @@ public class SimpleBullet : MonoBehaviour {
         HealthEnemy enemy = collision.GetComponent<HealthEnemy>();
         if (enemy != null) {
             enemy.SetLife(damage,false);
+            //Instantiate FX
+            GameObject fx =(GameObject)Resources.Load("burst_tir");
+            if (fx != null) {
+                GameObject fxx = Instantiate(fx);
+                fxx.transform.position = transform.position;
+            }
             Destroy(gameObject);
         }
     }

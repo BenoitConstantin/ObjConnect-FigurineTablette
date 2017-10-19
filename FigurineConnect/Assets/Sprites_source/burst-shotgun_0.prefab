@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4280095273363248}
   - component: {fileID: 212505210423300012}
   - component: {fileID: 95601850011002552}
+  - component: {fileID: 114222548891354890}
   m_Layer: 0
   m_Name: burst-shotgun_0
   m_TagString: Untagged
@@ -48,7 +49,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1507198970808210}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 8d7f83b17a43f954285fe9b1b6730941, type: 2}
   m_CullingMode: 0
@@ -58,6 +59,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114222548891354890
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1507198970808210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc0238439e6bc77439055053b8275e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyAfter: 1
+  instantiateFX: 0
+  FXtoInstantiate: {fileID: 0}
 --- !u!212 &212505210423300012
 SpriteRenderer:
   m_ObjectHideFlags: 1

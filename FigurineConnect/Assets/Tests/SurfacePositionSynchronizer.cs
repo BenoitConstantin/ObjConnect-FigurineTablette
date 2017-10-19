@@ -17,7 +17,7 @@ public class SurfacePositionSynchronizer : MonoBehaviour {
 
     public float snapThreshold = 2f;
 
-    public Vector3 rotationOffset;
+
 
     SurfaceObject surfaceObject;
 
