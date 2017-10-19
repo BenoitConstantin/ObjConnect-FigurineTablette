@@ -22,7 +22,7 @@ public class SurfaceObjectDetector : SimpleSingleton<SurfaceObjectDetector>
     }
 
     //Variables for Calibration purpose
-    private SurfaceObject calibratedSurfaceObject = null;
+    public SurfaceObject calibratingSurfaceObject { get; private set; }
     private CalibrationStatus currentCalibrationStatus = CalibrationStatus.CALIBRATED;
 
     void Update()
@@ -30,7 +30,7 @@ public class SurfaceObjectDetector : SimpleSingleton<SurfaceObjectDetector>
         switch (currentState)
         {
             case State.CALIBRATING:
-                currentCalibrationStatus = Calibrate(calibratedSurfaceObject);
+                currentCalibrationStatus = Calibrate(calibratingSurfaceObject);
 
                 Debug.Log(currentCalibrationStatus);
 
@@ -123,14 +123,14 @@ public class SurfaceObjectDetector : SimpleSingleton<SurfaceObjectDetector>
     public void StartCalibration(SurfaceObject obj)
     {
         this.currentState = State.CALIBRATING;
-        this.calibratedSurfaceObject = obj;
+        this.calibratingSurfaceObject = obj;
         obj.isCalibrated = false;
     }
 
     public void StopCalibration()
     {
         this.currentState = State.PROCESSING_POSITION_ROTATION;
-        this.calibratedSurfaceObject = null;
+        this.calibratingSurfaceObject = null;
     }
 
     CalibrationStatus Calibrate(SurfaceObject obj)

@@ -8,7 +8,6 @@ public class GameManager : SimpleSingleton<GameManager> {
     [SerializeField]
     FSMOwner fsmOwner;
 
-
     override protected void Awake()
     {
         base.Awake();
@@ -24,6 +23,11 @@ public class GameManager : SimpleSingleton<GameManager> {
         {
             ((ILevelLoadable)currentState).LoadLevel(number);
         }
+    }
+
+    public void EndParty()
+    {
+        fsmOwner.SendEvent("EndParty");
     }
 
 }

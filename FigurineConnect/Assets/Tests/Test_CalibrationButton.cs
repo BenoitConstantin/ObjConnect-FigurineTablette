@@ -7,7 +7,7 @@ using UnityEngine.UI;
 /// <summary>
 /// Only for test purpose
 /// </summary>
-public class CalibrationButton : MonoBehaviour {
+public class Test_CalibrationButton : MonoBehaviour {
 
     [SerializeField]
     SurfaceObjectDetector surfacePointsDetector;
