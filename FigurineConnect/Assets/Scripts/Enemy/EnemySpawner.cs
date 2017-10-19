@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour {
     public void SpawnEnemy()
     {
         spawnNumber--;
-        var spawn = Instantiate(spawnType, transform.position, transform.rotation);
+        GameObject spawn = Instantiate(spawnType, transform.position, transform.rotation);
+        spawn.transform.parent = transform.parent;
     }
 }

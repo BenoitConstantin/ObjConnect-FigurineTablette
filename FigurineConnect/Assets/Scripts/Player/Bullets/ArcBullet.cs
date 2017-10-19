@@ -17,7 +17,7 @@ public class ArcBullet : MonoBehaviour {
 		
 	}
 
-    private void OnTriggerEnter2D(Collider2D collision) {
+    private void OnTriggerEnter(Collider collision) {
         HealthEnemy enemy = collision.GetComponent<HealthEnemy>();
         if (enemy != null) {
             GetComponent<SpriteRenderer>().enabled = true;
@@ -26,7 +26,7 @@ public class ArcBullet : MonoBehaviour {
         }
     }
 
-    public void OnTriggerExit2D(Collider2D collision) {
+    public void OnTriggerExit(Collider collision) {
         HealthEnemy enemy = collision.GetComponent<HealthEnemy>();
         if (enemy != null) {
             enemyList.Remove(enemy);

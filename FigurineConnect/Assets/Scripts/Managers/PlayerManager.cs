@@ -28,7 +28,7 @@ public class PlayerManager : MonoBehaviour {
     void Start () {
         soldierUnit = GameObject.Find("SoldierUnit");
         shooterUnit = GameObject.Find("ShooterUnit");
-        playerBase = GameObject.FindGameObjectWithTag("PlayerBase");
+        playerBase = GameObject.FindGameObjectWithTag("Defence");
         if (soldierUnit != null) {
             SetSoldierParams();
         }
@@ -36,7 +36,7 @@ public class PlayerManager : MonoBehaviour {
             SetShooterParams();
         }
         if(playerBase != null) {
-            playerBase.GetComponent<PlayerBase>().health = health;
+            playerBase.GetComponent<DefenceHealth>().maxHealth = health;
         }
 	}
 	

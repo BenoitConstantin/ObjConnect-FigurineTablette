@@ -7,8 +7,8 @@ using UnityEngine.AI;
 public class BaseEnemy : MonoBehaviour
 {
 
-    public float maxHealth = 50;
-    public float currentHealth = 0; 
+    //public float maxHealth = 50;
+    //public float currentHealth = 0; 
     public int attack = 10;
     public float attackCooldown = 1.8f;
     private float timeUntilNextAttack = 0;
@@ -20,15 +20,20 @@ public class BaseEnemy : MonoBehaviour
     void Start()
     {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
-        currentHealth = maxHealth;
+       // currentHealth = maxHealth;
         goal = FindNextNode();
         agent.destination = goal;
         attackPoint = GameObject.FindGameObjectWithTag("Defence");
     }
 
+    private void LateUpdate() {
+        /*Vector3 rotation = Vector3.zero;
+        transform.localRotation = Quaternion.Euler(rotation);*/
+    }
+    
     private void Update()
     {
-        if (Vector3.Distance(transform.position,goal) < 1)
+        if (Vector3.Distance(transform.position,goal) < nodeBuffer)
         {
             goal = FindNextNode();
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
@@ -50,11 +55,16 @@ public class BaseEnemy : MonoBehaviour
             timeUntilNextAttack -= 1 * Time.deltaTime;
         }
 
-        float healthBarScale = currentHealth / maxHealth;
-        healthBar.transform.localScale = new Vector3(healthBarScale, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
+        
     }
 
-    private int nodeBuffer = 2;
+    public void UpdateHealthBar(int health) {
+       // currentHealth = health;
+       // float healthBarScale = currentHealth / maxHealth;
+        //healthBar.transform.localScale = new Vector3(healthBarScale, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
+    }
+
+    private int nodeBuffer = 200;
 
     private Vector3 FindNextNode()
     {
