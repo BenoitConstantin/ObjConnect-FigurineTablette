@@ -10,10 +10,12 @@ public class ShooterUnit : BaseUnit {
     private float currentTime;
     private Transform bulletLayer;
     private int bulletDamage;
+
+    public GameObject fx;
+
 	// Use this for initialization
 	void Start () {
         bulletLayer = GameObject.FindGameObjectWithTag("BulletLayer").transform;
-        SetCamera();
     }
 	
 	// Update is called once per frame
@@ -25,15 +27,21 @@ public class ShooterUnit : BaseUnit {
             Shoot();
             currentTime = 0;
         }
-       
+        if (test && IsSelected()) Rotate();
 	}
 
     void Shoot() {
         GameObject newBullet = Instantiate(bullet);
         newBullet.transform.parent = (bulletLayer != null)? bulletLayer: transform.parent;
         newBullet.transform.position = transform.position;
-        newBullet.GetComponent<SimpleBullet>().SetDirection(head.position - transform.position, rotation);
+        //newBullet.GetComponent<SimpleBullet>().SetDirection(head.position - transform.position, rotation);
+        newBullet.GetComponent<SimpleBullet>().SetDirection(transform.up, rotation);
         newBullet.GetComponent<SimpleBullet>().SetBulletDamage(bulletDamage);
+        //FX
+        if (fx != null) {
+            //GameObject fxx = Instantiate(fx);
+            //fxx.transform.position = head.position;
+        }
     }
 
     public void SetDamageAttack(int value) {

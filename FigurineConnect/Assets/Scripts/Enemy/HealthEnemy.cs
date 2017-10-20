@@ -29,6 +29,28 @@ public class HealthEnemy : MonoBehaviour {
         }
 	}
 
+    void PlayHitSFX() {
+        switch (name) {
+            case "BigEnemy(Clone)":
+                SoundManager.Instance.PlayBossHitSFX();
+                break;
+            case "Enemy(Clone)":
+                SoundManager.Instance.PlayEnemysHitSFX();
+                break;
+        }
+    }
+
+    void PlayDeathFX() {
+        switch (name) {
+            case "BigEnemy(Clone)":
+                SoundManager.Instance.PlayBossHitSFX();
+                break;
+            case "Enemy(Clone)":
+                SoundManager.Instance.PlayEnemysHitSFX();
+                break;
+        }
+    }
+
     public void SetLife(float delta, bool cycleAttack) {
         
         if (!recieveDamage) {
@@ -36,6 +58,7 @@ public class HealthEnemy : MonoBehaviour {
             cycleDamage = cycleAttack;
             currentDamage = delta;
             life -= currentDamage;
+            PlayHitSFX();
             GetComponentInChildren<Animator>().SetTrigger("Damage");
             if (life <= 0) {
                 if (explosionFX != null) {
@@ -43,6 +66,7 @@ public class HealthEnemy : MonoBehaviour {
                     explosionInstance.transform.parent = transform.parent;
                     explosionInstance.transform.localPosition = transform.localPosition;
                 }
+                PlayDeathFX();
                 Destroy(gameObject);
                 
             }

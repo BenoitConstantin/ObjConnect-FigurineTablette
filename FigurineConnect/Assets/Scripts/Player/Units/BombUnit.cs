@@ -13,7 +13,6 @@ public class BombUnit : BaseUnit {
 
     void Start() {
         //activationArea.SetActive(false);
-        SetCamera();
         //Invoke("StartExplosion", timeToExplode);
     }
 
@@ -29,6 +28,7 @@ public class BombUnit : BaseUnit {
     }
 
     public void InstanceExplosionFX() {
+        SoundManager.Instance.PlayBombExplosionSFX();
         explosionArea.GetComponent<BombExplosionArea>().ExplosionForce();
         explosionArea.GetComponent<BombExplosionArea>().hasExploded = true;
         explosionArea.GetComponent<Collider>().enabled = true;
@@ -42,17 +42,28 @@ public class BombUnit : BaseUnit {
 
     // Update is called once per frame
     void Update() {
-        
+
         /*if (IsSelected() && !startTick && Input.GetMouseButtonDown(0)) {
             
             startTick = true;
             Invoke("StartExplosion", timeToExplode);
             
-        }
+        }*/
         if (IsSelected() &&  Input.GetMouseButtonDown(0)) {
             SetNewPosition(Input.mousePosition.x, Input.mousePosition.y);
             Rotate();
-        }*/
+        }
         
+    }
+    Vector3 lastTransformPosition = Vector3.zero;
+    private void LateUpdate() {
+        if (lastTransformPosition != transform.position) {
+            if (!startTick) {
+                SoundManager.Instance.PlayBombPlaceSFX();
+                startTick = true;
+                Invoke("StartExplosion", timeToExplode);
+            }
+        }
+        lastTransformPosition = transform.position;
     }
 }

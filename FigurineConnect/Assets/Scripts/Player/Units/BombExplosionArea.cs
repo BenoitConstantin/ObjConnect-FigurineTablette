@@ -24,11 +24,24 @@ public class BombExplosionArea : MonoBehaviour {
         float radius = transform.localScale.x / 2;
         Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
         foreach (Collider hit in colliders) {
-            if (hit.GetComponent<HealthEnemy>())
-                hit.GetComponent<Rigidbody>().AddExplosionForce(multiplierForceX, explosionPos, radius, 6.0F,ForceMode.Impulse);
-
+            if (hit.GetComponent<HealthEnemy>()) {
+                PlayHitSFX(hit.name);
+                hit.GetComponent<Rigidbody>().AddExplosionForce(multiplierForceX, explosionPos, radius, 6.0F, ForceMode.Impulse);
+            }
         }
     }
+
+    void PlayHitSFX(string name) {
+        switch (name) {
+            case "BigEnemy(Clone)":
+                SoundManager.Instance.PlayBossHitSFX();
+                break;
+            case "Enemy(Clone)":
+                SoundManager.Instance.PlayEnemysHitSFX();
+                break;
+        }
+    }
+
     void OnTriggerStay(Collider collision) {
         if (crazyExplosion) {
             Vector3 explosionPos = transform.position;

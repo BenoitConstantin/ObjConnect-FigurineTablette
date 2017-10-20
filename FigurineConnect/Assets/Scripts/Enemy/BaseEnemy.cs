@@ -13,7 +13,7 @@ public class BaseEnemy : MonoBehaviour
     public float attackCooldown = 1.8f;
     private float timeUntilNextAttack = 0;
     public Vector3 goal;
-    private GameObject attackPoint;
+    public GameObject attackPoint;
     private bool attacking = false;
     public GameObject healthBar;
 
@@ -62,7 +62,7 @@ public class BaseEnemy : MonoBehaviour
             if (timeUntilNextAttack <= 0)
             {
                 GetComponentInChildren<Animator>().SetTrigger("Attack");
-                attackPoint.GetComponent<DefenceHealth>().currentHealth -= attack;
+                if(attackPoint!=null) attackPoint.GetComponent<DefenceHealth>().currentHealth -= attack;
                 if(MoonFace.current!=null) MoonFace.current.TakeDamage();
                 timeUntilNextAttack = attackCooldown;
             }

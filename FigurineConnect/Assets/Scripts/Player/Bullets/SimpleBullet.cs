@@ -24,6 +24,7 @@ public class SimpleBullet : MonoBehaviour {
         } else {
             Debug.LogError("Please create and tag a Limits GameObject with Min and Max GameObjects to define the map limits");
         }
+        SoundManager.Instance.PlayRayonShootSFX();
 	}
 
     private void Update() {
@@ -56,6 +57,12 @@ public class SimpleBullet : MonoBehaviour {
         HealthEnemy enemy = collision.GetComponent<HealthEnemy>();
         if (enemy != null) {
             enemy.SetLife(damage,false);
+            //Instantiate FX
+            GameObject fx =(GameObject)Resources.Load("burst_tir");
+            if (fx != null) {
+                GameObject fxx = Instantiate(fx);
+                fxx.transform.position = transform.position;
+            }
             Destroy(gameObject);
         }
     }

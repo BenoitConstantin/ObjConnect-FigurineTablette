@@ -9,7 +9,6 @@ public class BaseUnit : MonoBehaviour {
     public float actionTime;
     [Range(0, 360)]
     public float rotation;
-    private Camera mainCamera;
     private bool selected;
     // Use this for initialization
     void Start () {
@@ -25,10 +24,6 @@ public class BaseUnit : MonoBehaviour {
         selected = sel;
     }
 
-	public void SetCamera() {
-        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-    }
-
 	// Update is called once per frame
 	void Update () {
         if(test)
@@ -42,12 +37,19 @@ public class BaseUnit : MonoBehaviour {
             selected = true;
         }
     }
-
+    
     public void Rotate() {
+        //Vector3 target = transform.localPosition + transform.forward * 10;
+        //Vector3.
+        /*Quaternion quart = Quaternion.Euler(new Vector3(rotation,rotation,rotation));
+        Debug.Log(quart);
+        quart.Set(0, 0, quart.z, quart.w);
+        transform.rotation = quart;*/
+
         transform.rotation = Quaternion.Euler(0, 0, rotation);
     }
 
     public void SetNewPosition(float posX, float posY) {   
-        transform.position = mainCamera.ScreenToWorldPoint(new Vector3(posX, posY, 864));
+        transform.position = Camera.main.ScreenToWorldPoint(new Vector3(posX, posY, 864));
     }
 }
