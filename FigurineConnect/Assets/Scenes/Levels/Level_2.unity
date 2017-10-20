@@ -401,11 +401,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!4 &172163135 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4219873569370506, guid: 0aaa2b4a83d6ff74fab10a038faae097,
-    type: 2}
-  m_PrefabInternal: {fileID: 1320862659}
 --- !u!1 &203380874
 GameObject:
   m_ObjectHideFlags: 0
@@ -1379,7 +1374,7 @@ Transform:
   - {fileID: 782277514}
   - {fileID: 972806007}
   - {fileID: 402817613}
-  - {fileID: 172163135}
+  - {fileID: 1320862660}
   m_Father: {fileID: 487919823}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2191,9 +2186,17 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0aaa2b4a83d6ff74fab10a038faae097, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1320862660 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1320862659}
 --- !u!1 &1333490435
 GameObject:
   m_ObjectHideFlags: 0
@@ -3529,6 +3532,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0

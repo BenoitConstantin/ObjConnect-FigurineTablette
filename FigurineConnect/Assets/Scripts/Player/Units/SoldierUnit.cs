@@ -25,8 +25,9 @@ public class SoldierUnit : BaseUnit {
 
 	// Update is called once per frame
 	void Update () {
-        if (IsSelected() && Input.GetMouseButtonDown(0)) SetNewPosition(Input.mousePosition.x, Input.mousePosition.y);
-
-        Rotate();
+        if (IsSelected() && Input.GetMouseButtonDown(0)) {
+            SetNewPosition(Input.mousePosition.x, Input.mousePosition.y);
+            Rotate();
+        }
     }
 }
