@@ -76,7 +76,7 @@ public class BaseEnemy : MonoBehaviour
         //healthBar.transform.localScale = new Vector3(healthBarScale, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
     }
 
-    private int nodeBuffer = 200;
+    private int nodeBuffer = 100;
 
     public Vector3 limitInf { get; private set; }
     public Vector3 limitSup { get; private set; }
