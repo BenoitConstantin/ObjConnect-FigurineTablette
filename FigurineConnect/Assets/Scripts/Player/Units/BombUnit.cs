@@ -29,7 +29,7 @@ public class BombUnit : BaseUnit {
     }
 
     public void FinishExplosion() {
-        renderBomb.GetComponent<SpriteRenderer>().enabled = true;
+        if(test) renderBomb.GetComponent<SpriteRenderer>().enabled = true;
         explosionArea.GetComponent<BombExplosionArea>().hasExploded = false;
         explosionArea.GetComponent<Collider>().enabled = false;
     }
@@ -66,6 +66,7 @@ public class BombUnit : BaseUnit {
     private void LateUpdate() {
         if (lastTransformPosition != transform.position) {
             if (!startTick) {
+                renderBomb.GetComponent<SpriteRenderer>().enabled = true;
                 SoundManager.Instance.PlayBombPlaceSFX();
                 startTick = true;
                 Invoke("StartExplosion", timeToExplode);
