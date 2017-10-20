@@ -6,15 +6,18 @@ public class SoundManager : SimpleSingleton<SoundManager> {
     public AudioSource[] bossHitSFX;
     public AudioSource[] enemyHitSFX;
     public AudioSource[] rayonShootSFX;
+    public AudioSource[] bombSFX;
 
     public AudioSource bossDeathSFX;
     public AudioSource enemyDeathSFX;
+    
     // Use this for initialization
     void Start() {
         GameObject bossHit = GameObject.Find("BossHit");
         GameObject enemyHit = GameObject.Find("EnemyHit");
         GameObject rayonShoot = GameObject.Find("RayonShoot");
         GameObject enemyDeath = GameObject.Find("EnemyDeath");
+        GameObject bomb = GameObject.Find("Bomb");
 
         if (bossHit != null) {
             bossHitSFX = bossHit.GetComponents<AudioSource>();
@@ -28,6 +31,9 @@ public class SoundManager : SimpleSingleton<SoundManager> {
         if (enemyDeath != null) {
             bossDeathSFX = enemyDeath.GetComponents<AudioSource>()[0];
             enemyDeathSFX = enemyDeath.GetComponents<AudioSource>()[1];
+        }
+        if (bomb != null) {
+            bombSFX = bomb.GetComponents<AudioSource>();
         }
     }
 
@@ -58,5 +64,13 @@ public class SoundManager : SimpleSingleton<SoundManager> {
 
     public void PlayEnemyDeathSFX() {
         enemyDeathSFX.PlayDelayed(0.25f);
+    }
+
+    public void PlayBombPlaceSFX() {
+        bombSFX[0].Play();
+    }
+
+    public void PlayBombExplosionSFX() {
+        bombSFX[1].Play();
     }
 }

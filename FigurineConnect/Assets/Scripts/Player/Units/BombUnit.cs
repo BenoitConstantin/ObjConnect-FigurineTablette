@@ -29,6 +29,7 @@ public class BombUnit : BaseUnit {
     }
 
     public void InstanceExplosionFX() {
+        SoundManager.Instance.PlayBombExplosionSFX();
         explosionArea.GetComponent<BombExplosionArea>().ExplosionForce();
         explosionArea.GetComponent<BombExplosionArea>().hasExploded = true;
         explosionArea.GetComponent<Collider>().enabled = true;
@@ -59,6 +60,7 @@ public class BombUnit : BaseUnit {
     private void LateUpdate() {
         if (lastTransformPosition != transform.position) {
             if (!startTick) {
+                SoundManager.Instance.PlayBombPlaceSFX();
                 startTick = true;
                 Invoke("StartExplosion", timeToExplode);
             }

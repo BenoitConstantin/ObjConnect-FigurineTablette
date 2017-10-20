@@ -2679,7 +2679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   surfaceObjectID: Soldier
   transform: {fileID: 4215298468895764}
-  distanceFromCamera: 10
+  distanceFromCamera: 864
   positionLerpTime: 5
   rotationLerpTime: 0.1
   snapThreshold: 2
@@ -2694,7 +2694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5121d943059cfc74c9fa81a0e2b3356d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: 1
+  test: 0
   actionTime: 0
   rotation: 0
   renderBomb: {fileID: 4497337178267836}
@@ -2763,7 +2763,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1790919741900136}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8be3bca1b69be1640b39cc761bc0b01c, type: 3}
   m_Name: 
@@ -2983,7 +2983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   surfaceObjectID: Wall
   transform: {fileID: 4975565011625972}
-  distanceFromCamera: 10
+  distanceFromCamera: 864
   positionLerpTime: 5
   rotationLerpTime: 0.1
   snapThreshold: 2
