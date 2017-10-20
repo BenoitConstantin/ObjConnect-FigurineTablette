@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class BombUnit : BaseUnit {
 
+    public static BombUnit Instance;
+
     public Transform renderBomb;
     public GameObject explosionFX;
     public GameObject explosionArea;
     public float timeToExplode;
     private bool startTick = false;
     // Use this for initialization
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
     void Start() {
         //activationArea.SetActive(false);
