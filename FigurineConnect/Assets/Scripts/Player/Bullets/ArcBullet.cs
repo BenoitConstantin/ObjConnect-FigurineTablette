@@ -21,17 +21,36 @@ public class ArcBullet : MonoBehaviour {
         HealthEnemy enemy = collision.GetComponent<HealthEnemy>();
         if (enemy != null) {
             GetComponent<SpriteRenderer>().enabled = true;
+            GetComponent<Animator>().SetTrigger("EnemyEnter");
             if (enemyList.IndexOf(enemy) == -1) enemyList.Add(enemy);
             enemy.SetLife(damage, true);
+            
         }
+        GetComponent<Animator>().SetTrigger("EnemyExit");
     }
+
+    private void OnTriggerStay(Collider collision)
+    {
+        HealthEnemy enemy = collision.GetComponent<HealthEnemy>();
+        if (enemy != null)
+        {
+            GetComponent<SpriteRenderer>().enabled = true;
+            GetComponent<Animator>().SetTrigger("EnemyEnter");
+            if (enemyList.IndexOf(enemy) == -1) enemyList.Add(enemy);
+            enemy.SetLife(damage, true);
+            
+        }
+        GetComponent<Animator>().SetTrigger("EnemyExit");
+    }
+
 
     public void OnTriggerExit(Collider collision) {
         HealthEnemy enemy = collision.GetComponent<HealthEnemy>();
         if (enemy != null) {
             enemyList.Remove(enemy);
             if(enemyList.Count == 0) {
-                GetComponent<SpriteRenderer>().enabled = false;
+              GetComponent<Animator>().SetTrigger("EnemyExit");
+              GetComponent<SpriteRenderer>().enabled = false;
             }
             enemy.FinishDamage();
         }
