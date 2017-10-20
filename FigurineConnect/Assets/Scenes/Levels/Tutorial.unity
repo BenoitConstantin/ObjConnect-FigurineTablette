@@ -638,7 +638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a7dbb6bbdf4ffb46ab7dd87ba8191e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boundGraphSerialization: '{"version":2.6,"type":"NodeCanvas.StateMachines.FSM","translation":{"x":-4910.0,"y":-5067.0},"zoomFactor":0.9999121,"nodes":[{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[]},"_position":{"x":5402.476,"y":5231.461},"_name":"Read","$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_actionList":{"actions":[{"setTo":"Deactivate","overrideAgent":{"_value":1},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Activate","overrideAgent":{"_value":2},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Deactivate","overrideAgent":{"_value":3},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Deactivate","overrideAgent":{"_value":4},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Deactivate","overrideAgent":{"_value":5},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"surfaceObjectID":"Bomb","$type":"StartSurfaceObjectCalibration"},{"surfaceObjectID":"Bomb","animator":{"_value":6},"$type":"WaitSurfaceObjectCalibration"},{"$type":"StopSurfaceObjectCalibration"}]},"_position":{"x":5068.0,"y":5319.0},"_name":"WaitCalibrationBomb","$type":"NodeCanvas.StateMachines.ActionState","$id":"5"},{"_actionList":{"actions":[{"setTo":"Deactivate","overrideAgent":{"_value":2},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Activate","overrideAgent":{"_value":3},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Deactivate","overrideAgent":{"_value":4},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Deactivate","overrideAgent":{"_value":5},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"surfaceObjectID":"Shooter","$type":"StartSurfaceObjectCalibration"},{"surfaceObjectID":"Shooter","animator":{"_value":6},"$type":"WaitSurfaceObjectCalibration"},{"$type":"StopSurfaceObjectCalibration"}]},"_position":{"x":4910.0,"y":5558.0},"_name":"WaitCalibrationShooter","$type":"NodeCanvas.StateMachines.ActionState","$id":"22"},{"_actionList":{"actions":[{"setTo":"Deactivate","overrideAgent":{"_value":2},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Deactivate","overrideAgent":{"_value":3},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Activate","overrideAgent":{"_value":4},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Deactivate","overrideAgent":{"_value":5},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"surfaceObjectID":"Wall","$type":"StartSurfaceObjectCalibration"},{"surfaceObjectID":"Wall","animator":{"_value":6},"$type":"WaitSurfaceObjectCalibration"},{"$type":"StopSurfaceObjectCalibration"}]},"_position":{"x":5233.997,"y":5680.663},"_name":"WaitCalibrationWall","$type":"NodeCanvas.StateMachines.ActionState","$id":"37"},{"_actionList":{"actions":[{"setTo":"Deactivate","overrideAgent":{"_value":2},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Deactivate","overrideAgent":{"_value":3},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Deactivate","overrideAgent":{"_value":4},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Activate","overrideAgent":{"_value":5},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"surfaceObjectID":"Soldier","$type":"StartSurfaceObjectCalibration"},{"surfaceObjectID":"Soldier","animator":{"_value":6},"$type":"WaitSurfaceObjectCalibration"},{"$type":"StopSurfaceObjectCalibration"},{"touchNumber":{},"$type":"WaitTouch"},{"$type":"EndTutorial"}]},"_position":{"x":5473.99,"y":5836.658},"_name":"WaitCalibrationWall","$type":"NodeCanvas.StateMachines.ActionState","$id":"52"}],"connections":[{"_condition":{"timeout":{"_value":2.0},"$type":"NodeCanvas.Tasks.Conditions.Timeout"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"22"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"22"},"_targetNode":{"$ref":"37"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"37"},"_targetNode":{"$ref":"52"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"localBlackboard":{"_name":"Local
+  boundGraphSerialization: '{"version":2.6,"type":"NodeCanvas.StateMachines.FSM","translation":{"x":-4910.0,"y":-5067.0},"zoomFactor":0.9999121,"nodes":[{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[]},"_position":{"x":5402.476,"y":5231.461},"_name":"Read","$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_actionList":{"actions":[{"setTo":"Deactivate","overrideAgent":{"_value":1},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Activate","overrideAgent":{"_value":2},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Deactivate","overrideAgent":{"_value":3},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Deactivate","overrideAgent":{"_value":4},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Deactivate","overrideAgent":{"_value":5},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"surfaceObjectID":"Bomb","$type":"StartSurfaceObjectCalibration"},{"surfaceObjectID":"Bomb","animator":{"_value":6},"$type":"WaitSurfaceObjectCalibration"},{"$type":"StopSurfaceObjectCalibration"}]},"_position":{"x":5068.0,"y":5319.0},"_name":"WaitCalibrationBomb","$type":"NodeCanvas.StateMachines.ActionState","$id":"5"},{"_actionList":{"actions":[{"setTo":"Deactivate","overrideAgent":{"_value":2},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Activate","overrideAgent":{"_value":3},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Deactivate","overrideAgent":{"_value":4},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Deactivate","overrideAgent":{"_value":5},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"surfaceObjectID":"Shooter","$type":"StartSurfaceObjectCalibration"},{"surfaceObjectID":"Shooter","animator":{"_value":6},"$type":"WaitSurfaceObjectCalibration"},{"$type":"StopSurfaceObjectCalibration"}]},"_position":{"x":4910.0,"y":5558.0},"_name":"WaitCalibrationShooter","$type":"NodeCanvas.StateMachines.ActionState","$id":"22"},{"_actionList":{"actions":[{"setTo":"Deactivate","overrideAgent":{"_value":2},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Deactivate","overrideAgent":{"_value":3},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Activate","overrideAgent":{"_value":4},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Deactivate","overrideAgent":{"_value":5},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"surfaceObjectID":"Wall","$type":"StartSurfaceObjectCalibration"},{"surfaceObjectID":"Wall","animator":{"_value":6},"$type":"WaitSurfaceObjectCalibration"},{"$type":"StopSurfaceObjectCalibration"}]},"_position":{"x":5233.997,"y":5680.663},"_name":"WaitCalibrationWall","$type":"NodeCanvas.StateMachines.ActionState","$id":"37"},{"_actionList":{"actions":[{"setTo":"Deactivate","overrideAgent":{"_value":2},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Deactivate","overrideAgent":{"_value":3},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Deactivate","overrideAgent":{"_value":4},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"setTo":"Activate","overrideAgent":{"_value":5},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},{"surfaceObjectID":"Soldier","$type":"StartSurfaceObjectCalibration"},{"surfaceObjectID":"Soldier","animator":{"_value":6},"$type":"WaitSurfaceObjectCalibration"},{"$type":"StopSurfaceObjectCalibration"},{"touchNumber":{},"$type":"WaitTouch"},{"$type":"EndTutorial"}]},"_position":{"x":5473.99,"y":5836.658},"_name":"WaitCalibrationWall","$type":"NodeCanvas.StateMachines.ActionState","$id":"52"}],"connections":[{"_condition":{"timeout":{"_value":10.0},"$type":"NodeCanvas.Tasks.Conditions.Timeout"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"22"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"22"},"_targetNode":{"$ref":"37"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"37"},"_targetNode":{"$ref":"52"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"localBlackboard":{"_name":"Local
     Blackboard","_variables":{}}}'
   boundGraphObjectReferences:
   - {fileID: 0}
@@ -930,6 +930,54 @@ Prefab:
         type: 2}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4872441487382206, guid: d7949db47f329dd4cbafa560e0cc26bc, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.008
+      objectReference: {fileID: 0}
+    - target: {fileID: 4632124635964336, guid: d7949db47f329dd4cbafa560e0cc26bc, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.008
+      objectReference: {fileID: 0}
+    - target: {fileID: 4810523224545170, guid: d7949db47f329dd4cbafa560e0cc26bc, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.008
+      objectReference: {fileID: 0}
+    - target: {fileID: 4974440118753074, guid: d7949db47f329dd4cbafa560e0cc26bc, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.008
+      objectReference: {fileID: 0}
+    - target: {fileID: 4872441487382206, guid: d7949db47f329dd4cbafa560e0cc26bc, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.008
+      objectReference: {fileID: 0}
+    - target: {fileID: 4632124635964336, guid: d7949db47f329dd4cbafa560e0cc26bc, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.008
+      objectReference: {fileID: 0}
+    - target: {fileID: 4810523224545170, guid: d7949db47f329dd4cbafa560e0cc26bc, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.008
+      objectReference: {fileID: 0}
+    - target: {fileID: 4974440118753074, guid: d7949db47f329dd4cbafa560e0cc26bc, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.008
+      objectReference: {fileID: 0}
+    - target: {fileID: 4872441487382206, guid: d7949db47f329dd4cbafa560e0cc26bc, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.008
+      objectReference: {fileID: 0}
+    - target: {fileID: 4632124635964336, guid: d7949db47f329dd4cbafa560e0cc26bc, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.008
+      objectReference: {fileID: 0}
+    - target: {fileID: 4810523224545170, guid: d7949db47f329dd4cbafa560e0cc26bc, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.008
+      objectReference: {fileID: 0}
+    - target: {fileID: 4974440118753074, guid: d7949db47f329dd4cbafa560e0cc26bc, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.008
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d7949db47f329dd4cbafa560e0cc26bc, type: 2}
