@@ -7,6 +7,15 @@ public class EnemySpawnManager : MonoBehaviour {
     public int spawnRate = 2;
     public EnemySpawner[] spawnPoints;
     private float timeUntilNextSpawn;
+    public int totalNumberOfEnemies = 0;
+
+    private void Start()
+    {
+        for (int i = 0; i < spawnPoints.Length; ++i)
+        {
+            totalNumberOfEnemies += spawnPoints[i].spawnNumber;
+        }
+    }
 
     void Update()
     {
@@ -43,6 +52,11 @@ public class EnemySpawnManager : MonoBehaviour {
                 timeUntilNextSpawn = spawnRate;
             }
             timeUntilNextSpawn -= 1 * Time.deltaTime;
+        }
+
+        if(totalNumberOfEnemies <= 0)
+        {
+            GameManager.Instance.EndParty(true);
         }
     }
 }

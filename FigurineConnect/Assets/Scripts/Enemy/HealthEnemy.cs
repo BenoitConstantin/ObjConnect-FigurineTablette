@@ -66,6 +66,7 @@ public class HealthEnemy : MonoBehaviour {
                     explosionInstance.transform.parent = transform.parent;
                     explosionInstance.transform.localPosition = transform.localPosition;
                 }
+                GameObject.Find("EnemySpawnManager").GetComponent<EnemySpawnManager>().totalNumberOfEnemies--;
                 PlayDeathFX();
                 Destroy(gameObject);
                 
