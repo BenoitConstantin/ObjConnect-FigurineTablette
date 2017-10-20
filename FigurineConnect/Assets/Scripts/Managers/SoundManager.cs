@@ -11,6 +11,8 @@ public class SoundManager : SimpleSingleton<SoundManager> {
     public AudioSource bossDeathSFX;
     public AudioSource enemyDeathSFX;
     public AudioSource click;
+    public AudioSource loseSFX;
+    public AudioSource winSFX;
     // Use this for initialization
     void Start() {
         GameObject bossHit = GameObject.Find("BossHit");
@@ -35,7 +37,8 @@ public class SoundManager : SimpleSingleton<SoundManager> {
         if (bomb != null) {
             bombSFX = bomb.GetComponents<AudioSource>();
         }
-        click = GetComponent<AudioSource>();
+        loseSFX = GetComponents<AudioSource>()[1];
+        winSFX = GetComponents<AudioSource>()[2];
     }
 
     public void PlayBossHitSFX() {
@@ -77,5 +80,13 @@ public class SoundManager : SimpleSingleton<SoundManager> {
 
     public void PlayClickSFX() {
         click.Play();
+    }
+
+    public void PlayEndGameSFX(bool win) {
+        if (win) {
+            winSFX.Play();
+        } else {
+            loseSFX.Play();
+        }
     }
 }

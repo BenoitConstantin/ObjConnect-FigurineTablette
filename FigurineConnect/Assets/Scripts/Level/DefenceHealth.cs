@@ -20,6 +20,7 @@ public class DefenceHealth : MonoBehaviour {
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
+            SoundManager.Instance.PlayEndGameSFX(false);
             GameManager.Instance.EndParty(false);
         }
     }

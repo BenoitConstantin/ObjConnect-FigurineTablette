@@ -56,6 +56,7 @@ public class EnemySpawnManager : MonoBehaviour {
 
         if(totalNumberOfEnemies <= 0)
         {
+            SoundManager.Instance.PlayEndGameSFX(true);
             GameManager.Instance.EndParty(true);
         }
     }
