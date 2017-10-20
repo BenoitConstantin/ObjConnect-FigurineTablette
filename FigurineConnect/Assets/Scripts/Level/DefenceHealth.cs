@@ -19,7 +19,6 @@ public class DefenceHealth : MonoBehaviour {
         healthBar.transform.localScale = new Vector3(healthBarScale, healthBar.transform.localScale.y, healthBar.transform.localScale.z); 
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
             SoundManager.Instance.PlayEndGameSFX(false);
             GameManager.Instance.EndParty(false);
             Destroy(gameObject);   
