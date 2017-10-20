@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 114596107327499028}
   - component: {fileID: 58199932129735862}
   - component: {fileID: 114219594693671634}
+  - component: {fileID: 114356999504544112}
   m_Layer: 0
   m_Name: BombUnit
   m_TagString: Unit
@@ -235,11 +236,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   surfaceObjectID: Bomb
-  transform: {fileID: 4754959310952720}
+  transform: {fileID: 4976228896000568, guid: f53c5df5a68623649bb5cb4efd6bcb61, type: 2}
   distanceFromCamera: 864
   positionLerpTime: 5
   rotationLerpTime: 0.1
   snapThreshold: 2
+--- !u!114 &114356999504544112
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1594091417795808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba5fa9378fae4c47871d038c854078e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fx: {fileID: 1283679763732854, guid: f53c5df5a68623649bb5cb4efd6bcb61, type: 2}
 --- !u!114 &114478423064470250
 MonoBehaviour:
   m_ObjectHideFlags: 1

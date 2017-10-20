@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114454983205162630}
   - component: {fileID: 61476638088084116}
   - component: {fileID: 114769867543183344}
+  - component: {fileID: 114836845518482070}
   m_Layer: 0
   m_Name: ShooterUnit
   m_TagString: Unit
@@ -132,6 +133,18 @@ MonoBehaviour:
   positionLerpTime: 5
   rotationLerpTime: 0.1
   snapThreshold: 2
+--- !u!114 &114836845518482070
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1014798607391788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba5fa9378fae4c47871d038c854078e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fx: {fileID: 1119442058500652, guid: 062b672d179ca684a9a2946a662b2414, type: 2}
 --- !u!212 &212123074765136894
 SpriteRenderer:
   m_ObjectHideFlags: 1

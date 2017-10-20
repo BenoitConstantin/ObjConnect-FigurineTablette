@@ -2,29 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BaseUnit))]
 public class FX_Touch : MonoBehaviour {
 
     public GameObject fx;
     SurfacePositionSynchronizer surfacePosSync;
-
+    string surfaceObjectID;
+    public bool test;
     public SurfaceObject surfaceObject { get; private set; }
-
     // Use this for initialization
     void Start () {
-        string surfaceObjectID;
+        
         if (GetComponent<SurfacePositionSynchronizer>() != null) {
             surfaceObjectID = GetComponent<SurfacePositionSynchronizer>().name;
-            surfaceObject = SurfaceObjectDetector.Instance.GetSurfaceObject(surfaceObjectID);
-        } else {
-            enabled = false;
+            if(SurfaceObjectDetector.Instance!=null) surfaceObject = SurfaceObjectDetector.Instance.GetSurfaceObject(surfaceObjectID);
         }
+        test = GetComponent<BaseUnit>().test; 
 	}
 
     // Update is called once per frame
     void Update() {
-        if (surfaceObject.isDetected) {
-
-            SoundManager.Instance.PlayClickSFX();
+        if (test) {
+            if (Input.GetMouseButtonDown(0) && GetComponent<BaseUnit>().IsSelected()) PlayFXs();
+        } else {
+            if (surfaceObject != null) {
+                if (surfaceObject.isDetected) {
+                    PlayFXs();
+                }
+            }
         }
+    }
+    void PlayFXs() {
+        SoundManager.Instance.PlayClickSFX();
+        /*if (fx != null) {
+            fx.SetActive(true);
+            //fx.transform.position = Camera.main.WorldToScreenPoint(newtransform.position.x, transform.position.y);
+        }*/
     }
 }

@@ -364,6 +364,10 @@ Prefab:
       propertyPath: m_AnchoredPosition.y
       value: 482
       objectReference: {fileID: 0}
+    - target: {fileID: 1324926486529292, guid: ac03d894c381b3f48bdb42a8d632e6cc, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac03d894c381b3f48bdb42a8d632e6cc, type: 2}
   m_IsPrefabParent: 0
@@ -391,7 +395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &127723923
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1501,7 +1505,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 0c567b5cc551fc345815aa6d3c4d1493, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1791,7 +1795,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: a9bbcb87aec33ee49868239899963f8f, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
