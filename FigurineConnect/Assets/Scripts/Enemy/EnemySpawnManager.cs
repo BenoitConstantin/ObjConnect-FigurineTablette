@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawnManager : MonoBehaviour {
 
@@ -57,7 +58,12 @@ public class EnemySpawnManager : MonoBehaviour {
         if(totalNumberOfEnemies <= 0)
         {
             SoundManager.Instance.PlayEndGameSFX(true);
-            GameManager.Instance.EndParty(true);
+            if (GameManager.Instance == null) {
+               // SceneManager.LoadScene("Win");
+            } else {
+                GameManager.Instance.EndParty(true);
+            }
+            
         }
     }
 }
