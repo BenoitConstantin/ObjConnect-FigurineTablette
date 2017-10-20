@@ -141,7 +141,7 @@ PlayerSettings:
   targetPixelDensity: 0
   resolutionScalingMode: 0
   applicationIdentifier:
-    Android: LoL.Figurine
+    Android: LoL.Figurine.MoonFace2
     iOS: LoL.Figurine
   buildNumber: {}
   AndroidBundleVersionCode: 1
