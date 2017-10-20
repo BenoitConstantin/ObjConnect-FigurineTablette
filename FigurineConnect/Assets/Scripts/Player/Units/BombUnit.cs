@@ -13,7 +13,6 @@ public class BombUnit : BaseUnit {
 
     void Start() {
         //activationArea.SetActive(false);
-        SetCamera();
         //Invoke("StartExplosion", timeToExplode);
     }
 

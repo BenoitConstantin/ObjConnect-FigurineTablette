@@ -10,10 +10,6 @@ public class WallUnit : BaseUnit
     private float cooldownTime = 0;
     public GameObject wall;
 
-    private void Start()
-    {
-        SetCamera();
-    }
 
     public void SetWallHeight(float height)
     {

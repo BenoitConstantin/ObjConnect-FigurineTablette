@@ -16,7 +16,6 @@ public class ShooterUnit : BaseUnit {
 	// Use this for initialization
 	void Start () {
         bulletLayer = GameObject.FindGameObjectWithTag("BulletLayer").transform;
-        SetCamera();
     }
 	
 	// Update is called once per frame

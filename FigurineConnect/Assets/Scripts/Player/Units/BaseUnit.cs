@@ -9,7 +9,6 @@ public class BaseUnit : MonoBehaviour {
     public float actionTime;
     [Range(0, 360)]
     public float rotation;
-    private Camera mainCamera;
     private bool selected;
     // Use this for initialization
     void Start () {
@@ -23,10 +22,6 @@ public class BaseUnit : MonoBehaviour {
 
     public void SetUnitSelection(bool sel) {
         selected = sel;
-    }
-
-	public void SetCamera() {
-        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
 	// Update is called once per frame
@@ -55,6 +50,6 @@ public class BaseUnit : MonoBehaviour {
     }
 
     public void SetNewPosition(float posX, float posY) {   
-        transform.position = mainCamera.ScreenToWorldPoint(new Vector3(posX, posY, 864));
+        transform.position = Camera.main.ScreenToWorldPoint(new Vector3(posX, posY, 864));
     }
 }
