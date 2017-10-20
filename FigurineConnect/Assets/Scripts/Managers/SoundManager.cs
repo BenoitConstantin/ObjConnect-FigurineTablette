@@ -37,6 +37,7 @@ public class SoundManager : SimpleSingleton<SoundManager> {
         if (bomb != null) {
             bombSFX = bomb.GetComponents<AudioSource>();
         }
+        click = GetComponents<AudioSource>()[0];
         loseSFX = GetComponents<AudioSource>()[1];
         winSFX = GetComponents<AudioSource>()[2];
     }
