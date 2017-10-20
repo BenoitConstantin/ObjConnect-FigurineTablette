@@ -189,6 +189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4597641342865912}
   - component: {fileID: 212830549479698100}
+  - component: {fileID: 95180131065309958}
   m_Layer: 0
   m_Name: Face
   m_TagString: Untagged
@@ -3289,6 +3290,23 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: d5bfee355ba5bcd4cb65defb678fbd58, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95180131065309958
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1129962855892196}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b15ee65ebadfb8a4294ab5dc3e3e5270, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
