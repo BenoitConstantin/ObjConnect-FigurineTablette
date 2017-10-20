@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ShooterUnit : BaseUnit {
 
+    public static ShooterUnit Instance;
+
     public float cadence; //Shoot frequence
     public GameObject bullet;
     public Transform head;
@@ -13,8 +15,13 @@ public class ShooterUnit : BaseUnit {
 
     public GameObject fx;
 
-	// Use this for initialization
-	void Start () {
+    void Awake()
+    {
+        Instance = this;
+    }
+
+    // Use this for initialization
+    void Start () {
         bulletLayer = GameObject.FindGameObjectWithTag("BulletLayer").transform;
     }
 	

@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class SoldierUnit : BaseUnit {
 
+    public static SoldierUnit Instance;
+
     public GameObject arcBullet;
-    
-	// Use this for initialization
-	void Start () {
+
+
+    void Awake()
+    {
+        Instance = this;
+    }
+
+    // Use this for initialization
+    void Start () {
        // arcBullet.GetComponent<SpriteRenderer>().enabled = false;
     }
 	

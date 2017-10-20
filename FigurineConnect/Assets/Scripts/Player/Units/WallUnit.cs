@@ -5,19 +5,25 @@ using UnityEngine;
 public class WallUnit : BaseUnit
 {
 
+    public static WallUnit Instance;
+
     private float timeUntilNextUse = 0;
     private float timeUntilFinished = 0;
     private float cooldownTime = 0;
-    public GameObject wall;
 
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
     public void SetWallHeight(float height)
     {
-        wall.transform.localScale = new Vector3(wall.transform.localScale.x, height, wall.transform.localScale.z);
+        transform.localScale = new Vector3(transform.localScale.x, height, transform.localScale.z);
     }
     public void SetWallWidth(float width)
     {
-        wall.transform.localScale = new Vector3(width, wall.transform.localScale.y, wall.transform.localScale.z);
+        transform.localScale = new Vector3(width, transform.localScale.y, transform.localScale.z);
     }
     public void SetWallDuration(float duration)
     {
