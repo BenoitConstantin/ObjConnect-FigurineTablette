@@ -47,21 +47,6 @@ public class BombUnit : BaseUnit {
         
     }
 
-    // Update is called once per frame
-    void Update() {
-
-        /*if (IsSelected() && !startTick && Input.GetMouseButtonDown(0)) {
-            
-            startTick = true;
-            Invoke("StartExplosion", timeToExplode);
-            
-        }*/
-        if (IsSelected() &&  Input.GetMouseButtonDown(0)) {
-            SetNewPosition(Input.mousePosition.x, Input.mousePosition.y);
-            Rotate();
-        }
-        
-    }
     Vector3 lastTransformPosition = Vector3.zero;
     private void LateUpdate() {
         if (lastTransformPosition != transform.position) {

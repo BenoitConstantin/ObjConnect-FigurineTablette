@@ -13,7 +13,6 @@ public class BaseUnit : MonoBehaviour {
     // Use this for initialization
     void Start () {
         inGame = false;
-        
     }
 
     public bool IsSelected() {
@@ -25,11 +24,13 @@ public class BaseUnit : MonoBehaviour {
     }
 
 	// Update is called once per frame
-	void Update () {
-        if(test)
-        Rotate();
+	protected virtual void Update () {
+        if (IsSelected() && Input.GetMouseButtonDown(0)) {
+            SetNewPosition(Input.mousePosition.x, Input.mousePosition.y);
+            Rotate();
+        }
         
-	}
+    }
 
     void OnMouseDown() {
         if (test) {
@@ -39,12 +40,6 @@ public class BaseUnit : MonoBehaviour {
     }
     
     public void Rotate() {
-        //Vector3 target = transform.localPosition + transform.forward * 10;
-        //Vector3.
-        /*Quaternion quart = Quaternion.Euler(new Vector3(rotation,rotation,rotation));
-        Debug.Log(quart);
-        quart.Set(0, 0, quart.z, quart.w);
-        transform.rotation = quart;*/
 
         transform.rotation = Quaternion.Euler(0, 0, rotation);
     }
@@ -52,4 +47,6 @@ public class BaseUnit : MonoBehaviour {
     public void SetNewPosition(float posX, float posY) {   
         transform.position = Camera.main.ScreenToWorldPoint(new Vector3(posX, posY, 864));
     }
+
+
 }

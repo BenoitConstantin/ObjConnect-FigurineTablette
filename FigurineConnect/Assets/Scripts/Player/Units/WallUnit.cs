@@ -35,12 +35,9 @@ public class WallUnit : BaseUnit
         cooldownTime = cooldown;
     }
 
-    void Update()
+    protected override void Update ()
     {
-        if (IsSelected() && Input.GetMouseButtonDown(0)) {
-            SetNewPosition(Input.mousePosition.x, Input.mousePosition.y);
-            Rotate();
-        }
+        base.Update(); 
 
         if (timeUntilNextUse <= 0)
         {

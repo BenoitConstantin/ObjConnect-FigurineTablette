@@ -11,6 +11,7 @@ public class SoldierUnit : BaseUnit {
 
     void Awake()
     {
+        
         Instance = this;
     }
 
@@ -24,10 +25,7 @@ public class SoldierUnit : BaseUnit {
     }
 
 	// Update is called once per frame
-	void Update () {
-        if (IsSelected() && Input.GetMouseButtonDown(0)) {
-            SetNewPosition(Input.mousePosition.x, Input.mousePosition.y);
-            Rotate();
-        }
-    }
+	/*void Update () {
+        
+    }*/
 }

@@ -26,9 +26,9 @@ public class ShooterUnit : BaseUnit {
     }
 	
 	// Update is called once per frame
-	void Update () {
-        if (IsSelected() && Input.GetMouseButtonDown(0)) SetNewPosition(Input.mousePosition.x, Input.mousePosition.y);
-
+	protected override void Update () {
+        base.Update();
+        
         currentTime += Time.deltaTime;
         if (currentTime > cadence) {
             Shoot();
