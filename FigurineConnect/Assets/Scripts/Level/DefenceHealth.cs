@@ -22,6 +22,7 @@ public class DefenceHealth : MonoBehaviour {
             Destroy(gameObject);
             SoundManager.Instance.PlayEndGameSFX(false);
             GameManager.Instance.EndParty(false);
+            Destroy(gameObject);   
         }
     }
 }
