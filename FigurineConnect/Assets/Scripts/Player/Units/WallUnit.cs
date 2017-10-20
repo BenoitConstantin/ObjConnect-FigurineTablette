@@ -37,7 +37,10 @@ public class WallUnit : BaseUnit
 
     void Update()
     {
-        if (IsSelected() && Input.GetMouseButtonDown(0)) SetNewPosition(Input.mousePosition.x, Input.mousePosition.y);
+        if (IsSelected() && Input.GetMouseButtonDown(0)) {
+            SetNewPosition(Input.mousePosition.x, Input.mousePosition.y);
+            Rotate();
+        }
 
         if (timeUntilNextUse <= 0)
         {
@@ -51,6 +54,6 @@ public class WallUnit : BaseUnit
 
         timeUntilNextUse -= 1 * Time.deltaTime;
 
-        Rotate();
+        
     }
 }
