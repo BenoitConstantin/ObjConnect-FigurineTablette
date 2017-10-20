@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 114103932457747814}
   - component: {fileID: 61713210055151158}
   - component: {fileID: 208912436308028250}
+  - component: {fileID: 114324354358901542}
   m_Layer: 0
   m_Name: WallUnit
   m_TagString: Unit
@@ -132,6 +133,23 @@ MonoBehaviour:
   actionTime: 0
   rotation: 0
   wall: {fileID: 1175713021979434}
+--- !u!114 &114324354358901542
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1615620212186730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8be3bca1b69be1640b39cc761bc0b01c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  surfaceObjectID: Wall
+  transform: {fileID: 4650377674700210}
+  distanceFromCamera: 864
+  positionLerpTime: 5
+  rotationLerpTime: 0.1
+  snapThreshold: 2
 --- !u!208 &208375155043980208
 NavMeshObstacle:
   m_ObjectHideFlags: 1
