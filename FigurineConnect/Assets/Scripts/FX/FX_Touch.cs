@@ -34,9 +34,12 @@ public class FX_Touch : MonoBehaviour {
     }
     void PlayFXs() {
         SoundManager.Instance.PlayClickSFX();
-        /*if (fx != null) {
-            fx.SetActive(true);
-            //fx.transform.position = Camera.main.WorldToScreenPoint(newtransform.position.x, transform.position.y);
-        }*/
+        if (fx != null) {
+            /*fx.SetActive(true);
+            Vector3 pos =  Camera.main.WorldToViewportPoint(transform.position);
+            pos = Camera.main.ViewportToWorldPoint(pos);
+            pos.z = 575.75f;
+            fx.transform.position = pos;*/
+        }
     }
 }
