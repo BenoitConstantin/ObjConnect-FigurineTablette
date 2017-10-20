@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour {
 
-    private GameObject soldierUnit;
-    private GameObject shooterUnit;
+    private SoldierUnit soldierUnit;
+    private ShooterUnit shooterUnit;
     private GameObject playerBase;
-    private GameObject wallUnit;
-    private GameObject bombUnit;
+    private WallUnit wallUnit;
+    private BombUnit bombUnit;
 
     [Header("General Config")]
     public int health;
@@ -35,10 +35,10 @@ public class PlayerManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        soldierUnit = GameObject.Find("SoldierUnit");
-        shooterUnit = GameObject.Find("ShooterUnit");
-        wallUnit = GameObject.Find("WallUnit");
-        bombUnit = GameObject.Find("BombUnit");
+        soldierUnit = SoldierUnit.Instance;
+        shooterUnit = ShooterUnit.Instance;
+        wallUnit =  WallUnit.Instance;
+        bombUnit = BombUnit.Instance;
         playerBase = GameObject.FindGameObjectWithTag("PlayerBase");
 
         if (soldierUnit != null) {

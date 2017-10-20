@@ -5,10 +5,17 @@ using UnityEngine;
 public class WallUnit : BaseUnit
 {
 
+    public static WallUnit Instance;
+
     private float timeUntilNextUse = 0;
     private float timeUntilFinished = 0;
     private float cooldownTime = 0;
 
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
     public void SetWallHeight(float height)
     {
