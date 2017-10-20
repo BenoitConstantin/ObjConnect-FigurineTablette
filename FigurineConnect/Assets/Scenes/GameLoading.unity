@@ -151,17 +151,16 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4274683785766134, guid: ff871c99bac850541b0cce36607acd75, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff871c99bac850541b0cce36607acd75, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &79605231 stripped
 Transform:
-  m_PrefabParentObject: {fileID: 4611846257666738, guid: ff871c99bac850541b0cce36607acd75,
-    type: 2}
-  m_PrefabInternal: {fileID: 79605230}
---- !u!1 &79605232 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1372963337539418, guid: ff871c99bac850541b0cce36607acd75,
+  m_PrefabParentObject: {fileID: 4274683785766134, guid: ff871c99bac850541b0cce36607acd75,
     type: 2}
   m_PrefabInternal: {fileID: 79605230}
 --- !u!1001 &399796718
@@ -374,7 +373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idToGameObjects:
   - surfaceObjectID: Soldier
-    gameObject: {fileID: 79605232}
+    gameObject: {fileID: 0}
   - surfaceObjectID: Shooter
     gameObject: {fileID: 1180670875}
   - surfaceObjectID: Wall

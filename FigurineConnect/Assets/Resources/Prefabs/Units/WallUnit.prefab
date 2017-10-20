@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   surfaceObjectID: Wall
-  transform: {fileID: 4219873569370506, guid: 0aaa2b4a83d6ff74fab10a038faae097, type: 2}
+  transform: {fileID: 4650377674700210}
   distanceFromCamera: 864
   positionLerpTime: 5
   rotationLerpTime: 0.1
